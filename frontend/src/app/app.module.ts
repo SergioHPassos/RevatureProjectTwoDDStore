@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartComponent } from './components/cart/cart.component';
-import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import { UserprofileComponent } from './components/user/userprofile.component';
 
 @NgModule({
   declarations: [
