@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit {
   savedProduct: any = null;
 
   ngOnInit(): void {
-
+    this.getProduct(this.productID);
   }
 
   async getProduct(id:number){
@@ -33,6 +33,11 @@ export class ProductComponent implements OnInit {
       description: ""
     };
     const gotProduct: Product = await this.productService.getProductByID(product);
+    this.savedProduct = gotProduct;
+  }
+
+  async getRelated(type:string){
+    
   }
 
 }
