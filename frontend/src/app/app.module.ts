@@ -8,9 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FrontComponent } from './components/front/front.component';
 import { ProductComponent } from './components/product/product.component';
-import { UserComponent } from './components/user/user.component';
-import { UserprofileComponent } from './components/user/userprofile.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +17,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     FrontComponent,
     ProductComponent,
     CartComponent,
-    UserComponent,
-    UserprofileComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
