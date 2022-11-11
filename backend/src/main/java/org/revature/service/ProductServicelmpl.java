@@ -30,7 +30,9 @@ public class ProductServicelmpl implements ProductService{
             return null;
         } else if(product.getType().trim().equals("")){
             throw new RuntimeException("Product needs a type.");
-        } else{
+        } else if(product.getSubtype().trim().equals("")){
+            throw new RuntimeException("Product needs a subtype.");
+        }else{
             ArrayList<Products> verifiedProducts = this.productDAO.getProductsbyType(product.getType());
             return verifiedProducts;
         }
