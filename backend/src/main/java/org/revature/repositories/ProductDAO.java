@@ -8,9 +8,9 @@ public interface ProductDAO {
 
     ArrayList<Products> getProducts();
 
-    ArrayList<Products> getProductsbyType();
+    ArrayList<Products> getProductsbyType(String type);
 
-    ArrayList<Products> getProductsbyTypeAndSubtype();
+    ArrayList<Products> getProductsbyTypeAndSubtype(String type, String subtype);
 
     ArrayList<Products> getProductsbyID();
 }

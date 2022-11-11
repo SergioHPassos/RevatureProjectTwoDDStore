@@ -15,6 +15,8 @@ public class Main {
         Javalin app = Javalin.create();
         ProductController productController = new ProductController();
         app.get("/getProducts", productController.getProducts);
+        app.post("/getProductsbyType", productController.getProductsbyType);
+
 
         // start server
         app.start();
