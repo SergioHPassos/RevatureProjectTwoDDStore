@@ -17,7 +17,7 @@ export class UserService {
   }
 
   async loginUser(user: User):Promise<User>{
-    const observable = this.http.get<User>("placeholder for login", user);
+    const observable = this.http.post<User>("placeholder for login", user);
     const foundUser = await firstValueFrom(observable);
     return foundUser;
   }
@@ -32,5 +32,9 @@ export class UserService {
     const observable = this.http.post<User>("placeholder for update", user);
     const foundUser = await firstValueFrom(observable);
     return foundUser;
+  }
+
+  async logoutUser(){
+    const observable = this.http.get<string>("placeholder for logout");
   }
 }

@@ -10,6 +10,7 @@ import { FrontComponent } from './components/front/front.component';
 import { ProductComponent } from './components/product/product.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserComponent } from './components/user/user.component';
+import { LogregComponent } from './components/logreg/logreg.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserComponent } from './components/user/user.component';
     CartComponent,
     SidebarComponent,
     NavbarComponent,
-    UserComponent
+    UserComponent,
+    LogregComponent
   ],
   imports: [
     BrowserModule,
