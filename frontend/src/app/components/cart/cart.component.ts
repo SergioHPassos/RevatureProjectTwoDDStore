@@ -17,7 +17,9 @@ export class CartComponent implements OnInit {
   currentUser: any = null;
   
   ngOnInit(): void {
-    this.findUser();
+   (async () => {
+    this.currentUser = await this.userService.getCurrentUser();
+   })
   }
 
   async getCart(){
@@ -59,10 +61,6 @@ export class CartComponent implements OnInit {
     };
     const gotCart: Product[] = await this.cartService.deleteCartProduct(removeProduct);
     this.cartList = gotCart;
-  }
-
-  async findUser(){
-    this.currentUser = await this.userService.getCurrentUser();
   }
 
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-front',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService: ProductService, private router: Router) { }
+
+  products: Product[] = [];
 
   ngOnInit(): void {
+    (async () => {
+      this.products = await this.productService.getAllProducts();
+    })
   }
 
 }

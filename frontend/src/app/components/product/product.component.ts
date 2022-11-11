@@ -14,30 +14,26 @@ export class ProductComponent implements OnInit {
 
   productID: number = 0;
   savedProduct: any = null;
+  relatedProducts: Product[] = [];
 
   ngOnInit(): void {
-    this.getProduct(this.productID);
-  }
-
-  async getProduct(id:number){
-    const product: Product = {
-      id: this.productID,
-      name: "",
-      type: "",
-      subtype: "",
-      price: 0,
-      image: "",
-      stock: 0,
-      rarity: "",
-      cartQuant: 0,
-      description: ""
-    };
-    const gotProduct: Product = await this.productService.getProductByID(product);
-    this.savedProduct = gotProduct;
-  }
-
-  async getRelated(type:string){
-    
+    (async () => {
+      const product: Product = {
+        id: this.productID,
+        name: "",
+        type: "",
+        subtype: "",
+        price: 0,
+        image: "",
+        stock: 0,
+        rarity: "",
+        cartQuant: 0,
+        description: ""
+      };
+      const gotProduct: Product = await this.productService.getProductByID(product);
+      this.savedProduct = gotProduct;
+      this.relatedProducts = await this.productService.getProductByType(this.savedProduct.type);
+    })
   }
 
 }

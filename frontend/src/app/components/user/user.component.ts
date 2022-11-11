@@ -13,24 +13,23 @@ export class UserComponent implements OnInit {
   constructor(private userService:UserService, private router: Router) { }
 
   currentUser: any = null;
+  id: number = 0;
   username: string = "";
   password: string = "";
   address: string = "";
 
   ngOnInit(): void {
-    this.findUser()
+    (async () => {
+      this.currentUser = await this.userService.getCurrentUser();
+      this.username = this.currentUser.username;
+      this.address = this.currentUser.address;
+    })
   }
 
   async updateUser(){
-    const user: User = {id:0, username: this.username, password: this.password, address: this.address};
+    const user: User = {id:this.id, username: this.username, password: this.password, address: this.address};
     const gotUser: User = await this.userService.updateUser(user);
     this.address = gotUser.address;
-  }
-
-  async findUser(){
-    this.currentUser = await this.userService.getCurrentUser();
-    this.username = this.currentUser.username;
-    this.address = this.currentUser.address;
   }
 
 }

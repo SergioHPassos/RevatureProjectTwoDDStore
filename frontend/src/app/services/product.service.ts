@@ -22,8 +22,8 @@ export class ProductService {
     return foundProduct;
   }
 
-  async getProductByType(product: Product):Promise<Product>{
-    const observable = this.http.post<Product>("placeholder for type", product);
+  async getProductByType(product: Product):Promise<Product[]>{
+    const observable = this.http.post<Product[]>("placeholder for type", product);
     const foundProduct = await firstValueFrom(observable);
     return foundProduct;
   }
