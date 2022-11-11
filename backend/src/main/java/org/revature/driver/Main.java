@@ -16,6 +16,9 @@ public class Main {
         ProductController productController = new ProductController();
         app.get("/getProducts", productController.getProducts);
         app.post("/getProductsbyType", productController.getProductsbyType);
+        app.post("/getProductsbyTypeAndSubtype", productController.getProductsbyTypeAndSubtype);
+        app.post("/getProductsbyId", productController.getProductsbyid);
+
 
 
         // start server

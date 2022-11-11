@@ -22,13 +22,32 @@ public class ProductTests {
     }
 
     @Test
-    @Order(1)
+    @Order(2)
     void get_products_by_type_test() {
         ArrayList<Products> swords = productDAOMock.getProductsbyType("Swords");
         ArrayList<Products> potions = productDAOMock.getProductsbyType("Potions");
         System.out.println(swords.get(0).toString());
         System.out.println(potions.get(0).toString());
         Assertions.assertFalse(swords.get(0) == potions.get(0));
+    }
+
+    @Test
+    @Order(2)
+    void get_products_by_type_and_subtype_test() {
+        ArrayList<Products> swords = productDAOMock.getProductsbyTypeAndSubtype("Swords", "Longswords");
+        ArrayList<Products> shortsword = productDAOMock.getProductsbyTypeAndSubtype("Swords", "Shortswords");
+        System.out.println(swords.get(0).toString());
+        System.out.println(shortsword.get(0).toString());
+        Assertions.assertFalse(swords.get(0) == shortsword.get(0));
+    }
+
+    @Test
+    @Order(3)
+    void get_products_by_id_test() {
+        // Works as long as id 1 belongs to Longsword
+        ArrayList<Products> swords = productDAOMock.getProductsbyID(1);
+        System.out.println(swords.get(0).toString());
+        Assertions.assertTrue(swords.get(0).getName().equals("Longsword"));
     }
 
 }

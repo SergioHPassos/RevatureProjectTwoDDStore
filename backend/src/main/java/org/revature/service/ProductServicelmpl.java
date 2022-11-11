@@ -13,13 +13,35 @@ public class ProductServicelmpl implements ProductService{
     }
 
     @Override
-    public ArrayList<Products> getProductbyDragon(Products product) {
+    public ArrayList<Products> getProductbyType(Products product) {
         if(product == null){
             return null;
         } else if(product.getType().trim().equals("")){
             throw new RuntimeException("Product needs a type.");
         } else{
             ArrayList<Products> verifiedProducts = this.productDAO.getProductsbyType(product.getType());
+            return verifiedProducts;
+        }
+    }
+
+    @Override
+    public ArrayList<Products> getProductbyTypeAndSubtype(Products product) {
+        if(product == null){
+            return null;
+        } else if(product.getType().trim().equals("")){
+            throw new RuntimeException("Product needs a type.");
+        } else{
+            ArrayList<Products> verifiedProducts = this.productDAO.getProductsbyType(product.getType());
+            return verifiedProducts;
+        }
+    }
+
+    @Override
+    public ArrayList<Products> getProductbyId(int id) {
+        if(id < 1){
+            return null;
+        } else{
+            ArrayList<Products> verifiedProducts = this.productDAO.getProductsbyID(id);
             return verifiedProducts;
         }
     }

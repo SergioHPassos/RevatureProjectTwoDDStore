@@ -31,7 +31,7 @@ public class ProductController {
         String json = ctx.body();
         Gson gson = new Gson();
         Products product = (Products) gson.fromJson(json, Products.class);
-        ArrayList<Products> verifiedproduct = Main.productService.getProductbyDragon(product);
+        ArrayList<Products> verifiedproduct = Main.productService.getProductbyType(product);
         String jsonString = "";
         if(verifiedproduct.size() == 0) {
             ctx.status(404);
@@ -47,15 +47,33 @@ public class ProductController {
     public Handler getProductsbyTypeAndSubtype = (ctx) -> {
         String json = ctx.body();
         Gson gson = new Gson();
-        ProductDAOPostgres productDAO = new ProductDAOPostgres();
-        ArrayList<Products> products = productDAO.getProducts();
+        Products product = (Products) gson.fromJson(json, Products.class);
+        ArrayList<Products> verifiedproduct = Main.productService.getProductbyTypeAndSubtype(product);
         String jsonString = "";
-        if(products.size() == 0) {
+        if(verifiedproduct.size() == 0) {
             ctx.status(404);
             ctx.result("No products available!");
         } else {
-            for (int i = 0; i < products.size(); i++){
-                jsonString += products.get(i).toString() + "\n\r";
+            for (int i = 0; i < verifiedproduct.size(); i++){
+                jsonString += verifiedproduct.get(i).toString() + "\n\r";
+            }
+            ctx.status(200);
+            ctx.result(jsonString);
+        }
+    };
+
+    public Handler getProductsbyid = (ctx) -> {
+        String json = ctx.body();
+        Gson gson = new Gson();
+        Products product = (Products) gson.fromJson(json, Products.class);
+        ArrayList<Products> verifiedproduct = Main.productService.getProductbyId(product.getId());
+        String jsonString = "";
+        if(verifiedproduct.size() == 0) {
+            ctx.status(404);
+            ctx.result("No products available!");
+        } else {
+            for (int i = 0; i < verifiedproduct.size(); i++){
+                jsonString += verifiedproduct.get(i).toString() + "\n\r";
             }
             ctx.status(200);
             ctx.result(jsonString);
