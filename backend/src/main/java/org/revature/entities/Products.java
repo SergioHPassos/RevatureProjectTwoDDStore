@@ -1,10 +1,12 @@
 package org.revature.entities;
 
+import java.util.Arrays;
+
 public class Products {
     int id;
     String name;
     String description;
-    String price;
+    int price;
     int stock;
     String type;
     String subtype;
@@ -39,11 +41,11 @@ public class Products {
         this.description = description;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -93,5 +95,21 @@ public class Products {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Products{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", type='" + type + '\'' +
+                ", subtype='" + subtype + '\'' +
+                ", rarity=" + rarity +
+                ", discount=" + discount +
+                ", image=" + Arrays.toString(image) +
+                '}';
     }
 }
