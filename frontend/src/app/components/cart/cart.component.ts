@@ -25,12 +25,38 @@ export class CartComponent implements OnInit {
     this.cartList = gotCart;
   }
 
-  async updateCart(updateProduct: Product){
+  async updateCart(id: number, quantity: number){
+    const updateProduct: Product =
+    {
+      id: id,
+      name: "",
+      type: "",
+      subtype: "",
+      price: 0,
+      image: "",
+      stock: 0,
+      rarity: "",
+      cartQuant: quantity,
+      description: ""
+    };
     const gotCart: Product[] = await this.cartService.updateCartProduct(updateProduct);
     this.cartList = gotCart;
   }
 
-  async removeItem(removeProduct: Product){
+  async removeItem(id: number){
+    const removeProduct: Product =
+    {
+      id: id,
+      name: "",
+      type: "",
+      subtype: "",
+      price: 0,
+      image: "",
+      stock: 0,
+      rarity: "",
+      cartQuant: 0,
+      description: ""
+    };
     const gotCart: Product[] = await this.cartService.deleteCartProduct(removeProduct);
     this.cartList = gotCart;
   }
