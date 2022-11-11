@@ -8,6 +8,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { FrontComponent } from './components/front/front.component';
 import { ProductComponent } from './components/product/product.component';
 import { UserComponent } from './components/user/user.component';
+import { LogregComponent } from './components/logreg/logreg.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UserComponent } from './components/user/user.component';
     FrontComponent,
     ProductComponent,
     CartComponent,
-    UserComponent
+    UserComponent,
+    LogregComponent
   ],
   imports: [
     BrowserModule,

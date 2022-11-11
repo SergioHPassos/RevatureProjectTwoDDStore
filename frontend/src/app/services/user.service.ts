@@ -33,4 +33,8 @@ export class UserService {
     const foundUser = await firstValueFrom(observable);
     return foundUser;
   }
+
+  async logoutUser(){
+    const observable = this.http.get<string>("placeholder for logout");
+  }
 }
