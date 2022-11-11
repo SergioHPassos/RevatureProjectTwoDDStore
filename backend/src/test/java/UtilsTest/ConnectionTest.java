@@ -2,7 +2,7 @@ package UtilsTest;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.revature.driver.DBConnection;
+import org.revature.utils.DBConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
