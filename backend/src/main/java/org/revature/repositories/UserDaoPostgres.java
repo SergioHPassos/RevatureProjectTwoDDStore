@@ -3,7 +3,6 @@ import org.revature.driver.Main;
 import org.revature.entities.User;
 import org.revature.utils.DBConnection;
 
-
 import java.sql.*;
 
 public class UserDaoPostgres implements UserDao {
