@@ -11,6 +11,8 @@ import { ProductComponent } from './components/product/product.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserComponent } from './components/user/user.component';
 import { LogregComponent } from './components/logreg/logreg.component';
+import { FormsModule } from '@angular/forms';
+import { CartproductComponent } from './components/cartproduct/cartproduct.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { LogregComponent } from './components/logreg/logreg.component';
     SidebarComponent,
     NavbarComponent,
     UserComponent,
-    LogregComponent
+    LogregComponent,
+    CartproductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
