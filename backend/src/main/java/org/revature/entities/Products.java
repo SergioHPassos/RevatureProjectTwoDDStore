@@ -8,6 +8,7 @@ public class Products {
     String description;
     int price;
     int stock;
+    int cartAmount;
     String type;
     String subtype;
     Rarity rarity;
@@ -95,6 +96,14 @@ public class Products {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public int getCartAmount() {
+        return cartAmount;
+    }
+
+    public void setCartAmount(int cartAmount) {
+        this.cartAmount = cartAmount;
     }
 
     @Override

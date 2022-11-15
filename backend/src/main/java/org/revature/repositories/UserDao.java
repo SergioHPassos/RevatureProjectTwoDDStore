@@ -1,7 +1,5 @@
 package org.revature.repositories;
 
-import org.revature.entities.Cart;
-import org.revature.entities.Stock;
 import org.revature.entities.User;
 
 public interface UserDao {
@@ -10,12 +8,5 @@ public interface UserDao {
     User getCurrentUser();
     User updateUser(User user);
     User getUserByUsername(String username);
-//    Stock getAllProducts();
-//    Stock getProductByTypeAndSubType(Stock type, Stock subType);
-//    Stock getProductById(int ItemId);
     User getUserById(int UserId);
-//    Stock getCartByUserId(int UserId);
-//    Cart addItemToCart(Cart cart);
-//    Cart updateItemQuantityInCart(Cart cart);
-//    Cart deleteItemFrontCart(Cart cart);
 }
