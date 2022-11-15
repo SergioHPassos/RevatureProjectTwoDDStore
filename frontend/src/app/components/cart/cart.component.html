@@ -1,1 +1,24 @@
-<p>cart works!</p>
+<h3>Your Cart</h3>
+
+<h4 *ngIf="cartList.length === 0">Loading Cart...</h4>
+
+<table>
+    <thead>
+        <th>Image</th>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </thead>
+<!--     <tr>
+        <td>"Image"</td>
+        <td>Longsword</td>
+        <td>$2.99</td>
+        <td>
+            <input type="text" name="1Quant" placeholder="1" [(ngModel)] ="quantity">
+            <button>Update Quantity</button>
+        </td>
+    </tr> -->
+    <tr *ngFor="let i of cartList">
+        <app-cartproduct [inputProduct] = i (change)="removeItem($event)"></app-cartproduct>
+    </tr>
+</table>
