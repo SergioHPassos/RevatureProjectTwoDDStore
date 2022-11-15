@@ -11,6 +11,7 @@ import { ProductComponent } from './components/product/product.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserComponent } from './components/user/user.component';
 import { LogregComponent } from './components/logreg/logreg.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LogregComponent } from './components/logreg/logreg.component';
     SidebarComponent,
     NavbarComponent,
     UserComponent,
-    LogregComponent
+    LogregComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
