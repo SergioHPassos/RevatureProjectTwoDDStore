@@ -1,8 +1,7 @@
 package org.revature.repositories;;
 import org.revature.driver.Main;
 import org.revature.entities.User;
-import org.revature.utils.ConnectionFactory;
-import org.revature.driver.DBConnection;
+import org.revature.utils.DBConnection;
 
 import java.sql.*;
 

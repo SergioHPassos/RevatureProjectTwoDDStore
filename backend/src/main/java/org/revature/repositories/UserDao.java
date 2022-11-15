@@ -1,7 +1,4 @@
 package org.revature.repositories;
-
-import org.revature.entities.Cart;
-import org.revature.entities.Stock;
 import org.revature.entities.User;
 
 public interface UserDao {
