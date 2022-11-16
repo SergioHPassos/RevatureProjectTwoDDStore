@@ -1,6 +1,6 @@
 <td><img src="{{inputProduct.image}}"></td>
-<td>Longsword</td>
-<td>$2.99</td>
+<td>{{inputProduct.name}}</td>
+<td>{{inputProduct.price}}</td>
 <td>
     <input type="text" placeholder="{{inputProduct.quantity}}" [(ngModel)] ="quantity">
     <button (click)="updateItem()">Update Quantity</button>
