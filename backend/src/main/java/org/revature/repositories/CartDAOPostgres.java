@@ -129,7 +129,113 @@ public class CartDAOPostgres implements CartDAO {
     }
 
     @Override
-    public ArrayList<Products> updateCartProduct(Products product) {
+    public Products updateCartProduct(Products product) {
+        if (Main.currentUser == null) {
+            return null;
+        }
+        try (Connection connection = DBConnection.getConnection()) {
+            // Make sure cart is up-to-date.
+            getUserCart(Main.currentUser);
+            Products checkedProduct = new Products();
+            boolean confirmProduct = false;
+            int cartNum = 0;
+            int oldAmount = 0;
+            int amountDifference = 0;
+            // Check to make sure the product is inside the cart.
+            for(int i = 0; i<Main.cart.size();i++){
+                if(Main.cart.get(i).getName().equals(product.getName())){
+                    confirmProduct = true;
+                    cartNum = i;
+                    oldAmount = Main.cart.get(i).getCartAmount();
+                    Main.cart.get(i).setCartAmount(product.getCartAmount());
+                }
+            }
+            // Send null if the product does not appear in the cart.
+            if (!confirmProduct) return null;
+            if(oldAmount > Main.cart.get(cartNum).getCartAmount()){
+                // Old amount was larger, so add back to stock.
+                amountDifference = oldAmount - Main.cart.get(cartNum).getCartAmount();
+                // Get product to check the amount of stock.
+                String sql = "select * from stock where itemname = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setString(1, product.getName());
+                preparedStatement.execute();
+                ResultSet rs = preparedStatement.executeQuery();
+                while(rs.next()){
+                    checkedProduct.setId(rs.getInt("itemId"));
+                    checkedProduct.setName(rs.getString("itemname"));
+                    checkedProduct.setDescription(rs.getString("description"));
+                    checkedProduct.setPrice(rs.getInt("price"));
+                    checkedProduct.setStock(rs.getInt("stockcount"));
+                    checkedProduct.setType(rs.getString("itemtype"));
+                    checkedProduct.setSubtype(rs.getString("itemsubtype"));
+                    checkedProduct.setRarity(checkedProduct.getRarity().valueOf(rs.getString("rarity")));
+                    checkedProduct.setDiscount(rs.getBoolean("discount"));
+                    checkedProduct.setImage(rs.getBytes("image"));
+                }
+                // Updates the stock to take out the number of items added to a cart.
+                sql = "update stock set stockcount = ? where itemname = ?";
+                preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setInt(1, checkedProduct.getStock() + amountDifference);
+                preparedStatement.setString(2, product.getName());
+                int result = preparedStatement.executeUpdate();
+                if (result == 0){
+                    return null;
+                }
+
+            } else if(oldAmount < Main.cart.get(cartNum).getCartAmount()){
+                // Old amount was smaller, take away from stock.
+                amountDifference = Main.cart.get(cartNum).getCartAmount() - oldAmount;
+                // Get product to check the amount of stock.
+                String sql = "select * from stock where itemname = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setString(1, product.getName());
+                preparedStatement.execute();
+                ResultSet rs = preparedStatement.executeQuery();
+                while(rs.next()){
+                    checkedProduct.setId(rs.getInt("itemId"));
+                    checkedProduct.setName(rs.getString("itemname"));
+                    checkedProduct.setDescription(rs.getString("description"));
+                    checkedProduct.setPrice(rs.getInt("price"));
+                    checkedProduct.setStock(rs.getInt("stockcount"));
+                    checkedProduct.setType(rs.getString("itemtype"));
+                    checkedProduct.setSubtype(rs.getString("itemsubtype"));
+                    checkedProduct.setRarity(checkedProduct.getRarity().valueOf(rs.getString("rarity")));
+                    checkedProduct.setDiscount(rs.getBoolean("discount"));
+                    checkedProduct.setImage(rs.getBytes("image"));
+                }
+                // Return null if there is not enough stock to remove.
+                //TODO: Might want to do something other than return null to inform user stock is empty.
+                if (checkedProduct.getStock() < amountDifference){
+                    return null;
+                }
+                // Updates the stock to take out the number of items added to a cart.
+                sql = "update stock set stockcount = ? where itemname = ?";
+                preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setInt(1, checkedProduct.getStock() - amountDifference);
+                preparedStatement.setString(2, product.getName());
+                int result = preparedStatement.executeUpdate();
+                if (result == 0){
+                    return null;
+                }
+            } else if (oldAmount == Main.cart.get(cartNum).getCartAmount()) {
+                // The amount is the same. No changes need to be made to stocks.
+            }
+            String sql = "update carts set cartcount = ? where username = ? and itemname = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, Main.cart.get(cartNum).getCartAmount());
+            preparedStatement.setString(2, Main.currentUser.getUsername());
+            preparedStatement.setString(3, Main.cart.get(cartNum).getName());
+            preparedStatement.execute();
+            int result = preparedStatement.executeUpdate();
+            if (result == 0){
+                return null;
+            } else {
+                return Main.cart.get(cartNum);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

@@ -25,8 +25,14 @@ public class CartServiceImpl implements CartService{
     }
 
     @Override
-    public ArrayList<Products> updateCartProduct(Products product) {
-        return null;
+    public Products updateCartProduct(Products product) {
+        if (product.getName().trim().equals("")){
+            throw new RuntimeException("Product needs a name.");
+        }
+        if(product.getCartAmount() < 0){
+            throw new RuntimeException("Product amount cannot be negative.");
+        }
+        return this.cartDAO.updateCartProduct(product);
     }
 
     @Override

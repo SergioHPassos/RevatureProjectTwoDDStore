@@ -46,6 +46,7 @@ public class Main {
         CartController cartController = new CartController();
         app.post("/addToCart", cartController.addToCart);
         app.get("/getUserCart", cartController.getUserCart);
+        app.post("/updateCart", cartController.updateUserCart);
 
         // start server
         app.start();

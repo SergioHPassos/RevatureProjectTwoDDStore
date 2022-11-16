@@ -50,4 +50,22 @@ public class CartController {
             ctx.result(jsonString);
         }
     };
+
+    public Handler updateUserCart = (ctx) -> {
+        String json = ctx.body();
+        Gson gson = new Gson();
+        // Currently not even using this, using Main.current user instead.
+        Products product = (Products) gson.fromJson(json, Products.class);
+        Products updatedProduct = Main.cartService.updateCartProduct(product);
+        if (Main.currentUser == null){
+            ctx.status(400);
+            ctx.result("Please Login First!");
+        }else if(updatedProduct == null) {
+            ctx.status(400);
+            ctx.result("Product does not appear in cart, or edited amount is more than is currently in stock.");
+        } else {
+            ctx.status(200);
+            ctx.result(""+product);
+        }
+    };
 }
