@@ -1,0 +1,89 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1" date="1668615909098" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 16-Nov-22 11:25 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/service/ProductServicelmpl.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/service/ProductServicelmpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/ProductServicelmpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/service/UserServiceImpl.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/service/UserServiceImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/UserServiceImpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/repositories/UserDaoPostgres.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/repositories/UserDaoPostgres.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/UserDaoPostgres.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/service/UserService.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/service/UserService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/UserService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/controllers/UserController.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/controllers/UserController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/UserController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/entities/User.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/entities/User.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/User.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/utils/DBConnection.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/utils/DBConnection.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/DBConnection.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/entities/Products.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/entities/Products.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/Products.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/test-classes/UtilsTest/ConnectionTest.class" />
+    <option name="AFTER_PATH" value="backend/target/test-classes/UtilsTest/ConnectionTest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/ConnectionTest.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/driver/Main.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/driver/Main.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/Main.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/test-classes/DAOtests/ProductTests.class" />
+    <option name="AFTER_PATH" value="backend/target/test-classes/DAOtests/ProductTests.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/ProductTests.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/controllers/ProductController.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/controllers/ProductController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/ProductController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/entities/Rarity.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/entities/Rarity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/Rarity.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/repositories/ProductDAO.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/repositories/ProductDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/ProductDAO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/repositories/UserDao.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/repositories/UserDao.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/UserDao.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/repositories/ProductDAOPostgres.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/repositories/ProductDAOPostgres.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/ProductDAOPostgres.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="backend/target/classes/org/revature/service/ProductService.class" />
+    <option name="AFTER_PATH" value="backend/target/classes/org/revature/service/ProductService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-Nov-22_11_25_[Changes]1/ProductService.class" />
+  </binary>
+</changelist>
