@@ -53,7 +53,6 @@ public class CartDAOPostgres implements CartDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, product.getId());
             preparedStatement.execute();
-
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
                 checkedProduct.setId(rs.getInt("itemId"));

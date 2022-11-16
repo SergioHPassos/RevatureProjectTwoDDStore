@@ -114,6 +114,7 @@ public class Products {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", stock=" + stock +
+                ", cartAmount=" + cartAmount +
                 ", type='" + type + '\'' +
                 ", subtype='" + subtype + '\'' +
                 ", rarity=" + rarity +
