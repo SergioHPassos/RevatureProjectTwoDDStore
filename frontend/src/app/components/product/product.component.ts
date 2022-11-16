@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
   productID: any = this.activatedRoute.snapshot.paramMap.get('id');
   savedProduct: any = null;
   relatedProducts: Product[] = [];
-
+  imageURL: string = '';
   ngOnInit(): void {
     if(this.productID !== null){
       (async () => {
@@ -33,6 +33,8 @@ export class ProductComponent implements OnInit {
         };
         const gotProduct: Product = await this.productService.getProductByID(product);
         this.savedProduct = gotProduct;
+        let base64 = Buffer.from(this.savedProduct.image, 'base64')
+        this.imageURL = 'data:image/jpeg;base64,' + base64;
         this.relatedProducts = await this.productService.getProductByType(this.savedProduct);
       })
     }
