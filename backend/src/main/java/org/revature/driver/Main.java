@@ -19,8 +19,8 @@ public class Main {
 
     public static ArrayList<Products> cart = new ArrayList<>();
     public static UserService userService = new UserServiceImpl(new UserDaoPostgres());
-    public static ProductService productService = new ProductServicelmpl(new ProductDAOPostgres());
-    public static CartService cartService = new CartServicelmpl(new CartDAOPostgres());
+    public static ProductService productService = new ProductServiceImpl(new ProductDAOPostgres());
+    public static CartService cartService = new CartServiceImpl(new CartDAOPostgres());
     
     // entry point
     public static void main(String[] args) {
@@ -45,6 +45,7 @@ public class Main {
 
         CartController cartController = new CartController();
         app.post("/addToCart", cartController.addToCart);
+        app.get("/getUserCart", cartController.getUserCart);
 
         // start server
         app.start();

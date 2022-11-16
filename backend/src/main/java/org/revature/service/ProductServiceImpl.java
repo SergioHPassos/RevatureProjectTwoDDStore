@@ -5,10 +5,10 @@ import org.revature.repositories.ProductDAO;
 
 import java.util.ArrayList;
 
-public class ProductServicelmpl implements ProductService{
+public class ProductServiceImpl implements ProductService{
 
     private ProductDAO productDAO;
-    public ProductServicelmpl(ProductDAO productDAO) {
+    public ProductServiceImpl(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
 

@@ -3,20 +3,19 @@ package org.revature.service;
 import org.revature.entities.Products;
 import org.revature.entities.User;
 import org.revature.repositories.CartDAO;
-import org.revature.repositories.ProductDAO;
 
 import java.util.ArrayList;
 
-public class CartServicelmpl implements CartService{
+public class CartServiceImpl implements CartService{
 
     private CartDAO cartDAO;
-    public CartServicelmpl(CartDAO cartDAO) {
+    public CartServiceImpl(CartDAO cartDAO) {
         this.cartDAO = cartDAO;
     }
 
     @Override
     public ArrayList<Products> getUserCart(User user) {
-        return null;
+        return this.cartDAO.getUserCart(user);
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import io.javalin.http.Handler;
 import org.revature.driver.Main;
 import org.revature.entities.Products;
+import org.revature.entities.User;
 import org.revature.repositories.CartDAOPostgres;
 import org.revature.repositories.ProductDAOPostgres;
 
@@ -22,6 +23,28 @@ public class CartController {
         } else {
             for (int i = 0; i < products.size(); i++){
                 jsonString += products.get(i).toString() + "\n\r";
+            }
+            ctx.status(200);
+            ctx.result(jsonString);
+        }
+    };
+
+    public Handler getUserCart = (ctx) -> {
+        String json = ctx.body();
+        Gson gson = new Gson();
+        // Currently not even using this, using Main.current user instead.
+        User user = (User) gson.fromJson(json, User.class);
+        Main.cartService.getUserCart(Main.currentUser);
+        String jsonString = "";
+        if (Main.currentUser == null){
+            ctx.status(400);
+            ctx.result("Please Login First!");
+        }else if(Main.cart.size() < 1) {
+            ctx.status(404);
+            ctx.result("Cart is empty!");
+        } else {
+            for (int i = 0; i < Main.cart.size(); i++){
+                jsonString += Main.cart.get(i).toString() + "\n\r";
             }
             ctx.status(200);
             ctx.result(jsonString);
