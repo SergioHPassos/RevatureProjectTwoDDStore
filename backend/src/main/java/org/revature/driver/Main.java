@@ -47,6 +47,7 @@ public class Main {
         app.post("/addToCart", cartController.addToCart);
         app.get("/getUserCart", cartController.getUserCart);
         app.post("/updateCart", cartController.updateUserCart);
+        app.post("/deleteCartProduct", cartController.deleteCartProduct);
 
         // start server
         app.start();

@@ -37,6 +37,6 @@ public class CartServiceImpl implements CartService{
 
     @Override
     public ArrayList<Products> deleteCartProduct(Products product) {
-        return null;
+        return this.cartDAO.deleteCartProduct(product);
     }
 }

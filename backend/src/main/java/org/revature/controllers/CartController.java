@@ -68,4 +68,34 @@ public class CartController {
             ctx.result(""+product);
         }
     };
+
+    public Handler deleteCartProduct = (ctx) -> {
+        String json = ctx.body();
+        Gson gson = new Gson();
+        // Currently not even using this, using Main.current user instead.
+        Products product = (Products) gson.fromJson(json, Products.class);
+        int previous = 0;
+        if (Main.currentUser == null){
+            ctx.status(400);
+            ctx.result("Please Login First!");
+        }else{
+
+            Main.cartService.getUserCart(Main.currentUser);
+            previous = Main.cart.size();
+            System.out.println(previous);
+            Main.cartService.deleteCartProduct(product);
+            System.out.println(Main.cart.size());
+        }
+        String jsonString = "";
+       if(previous == Main.cart.size()) {
+            ctx.status(400);
+            ctx.result("Product was not removed.");
+        } else {
+           for (int i = 0; i < Main.cart.size(); i++){
+               jsonString += Main.cart.get(i).toString() + "\n\r";
+           }
+           ctx.status(200);
+           ctx.result(jsonString);
+        }
+    };
 }
