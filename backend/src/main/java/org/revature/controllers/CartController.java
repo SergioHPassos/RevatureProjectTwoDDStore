@@ -65,7 +65,7 @@ public class CartController {
             ctx.result("Product does not appear in cart, or edited amount is more than is currently in stock.");
         } else {
             ctx.status(200);
-            ctx.result(""+product);
+            ctx.result(""+updatedProduct);
         }
     };
 

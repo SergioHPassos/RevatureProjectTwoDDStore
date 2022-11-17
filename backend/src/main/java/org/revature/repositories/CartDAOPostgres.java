@@ -210,7 +210,9 @@ public class CartDAOPostgres implements CartDAO {
                 // Return null if there is not enough stock to remove.
                 //TODO: Might want to do something other than return null to inform user stock is empty.
                 if (checkedProduct.getStock() < amountDifference){
-                    return null;
+                    amountDifference = checkedProduct.getStock();
+                    Main.cart.get(cartNum).setCartAmount(oldAmount+amountDifference);
+                    System.out.println(Main.cart.get(cartNum).getCartAmount());
                 }
                 // Updates the stock to take out the number of items added to a cart.
                 sql = "update stock set stockcount = ? where itemname = ?";
@@ -234,6 +236,7 @@ public class CartDAOPostgres implements CartDAO {
             if (result == 0){
                 return null;
             } else {
+                System.out.println(Main.cart.get(cartNum).getCartAmount());
                 return Main.cart.get(cartNum);
             }
         }catch (SQLException e) {
