@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { CartproductComponent } from './components/cartproduct/cartproduct.component';
 import { CardComponent } from './components/card/card.component';
 import { LoginComponent } from './components/login/login.component';
-import { DropdownButtonComponent } from './dropdown-button/dropdown-button.component';
+import { DropdownButtonComponent } from './components/dropdown-button/dropdown-button.component';
+import { DisplayProductsComponent } from './components/display-products/display-products.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DropdownButtonComponent } from './dropdown-button/dropdown-button.compo
     CardComponent,
     LoginComponent,
     DropdownButtonComponent,
+    DisplayProductsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

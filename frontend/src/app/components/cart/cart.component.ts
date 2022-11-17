@@ -53,6 +53,6 @@ export class CartComponent implements OnInit {
   }
 
   async checkoutCart() {
-    const result = await this.cartService.checkout(this.currentUser);
+    // const result = await this.cartService.checkout(this.currentUser);
   }
 }
