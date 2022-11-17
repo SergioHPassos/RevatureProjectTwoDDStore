@@ -295,4 +295,47 @@ public class CartDAOPostgres implements CartDAO {
         }
         return null;
     }
+
+    @Override
+    public String checkout(User user) {
+        if (Main.currentUser == null) {
+            return null;
+        }
+        getUserCart(Main.currentUser);
+        if (Main.cart.size() < 1){
+            return null;
+        }
+        try(Connection conn = DBConnection.getConnection()){
+            int fullPrice = 0;
+            int fullCartCount = 0;
+            ArrayList<String> cartString = new ArrayList<>();
+            for(int i=0;i<Main.cart.size();i++){
+                fullPrice += Main.cart.get(i).getCartAmount()*Main.cart.get(i).getPrice();
+                fullCartCount += Main.cart.get(i).getCartAmount();
+                cartString.add(Main.cart.get(i).toString());
+            }
+            String sql = "insert into deliveries values(default, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, Main.currentUser.getUsername());
+            ps.setInt(2, fullPrice);
+            ps.setInt(3, fullCartCount);
+            ps.setString(4, cartString.toString());
+            ps.setString(5, Main.currentUser.getAddress());
+            ps.setDate(6, java.sql.Date.valueOf(java.time.LocalDate.now()));
+            ps.setDate(7, java.sql.Date.valueOf(java.time.LocalDate.now()));
+
+            ps.execute();
+
+            sql = "delete from carts where username = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, Main.currentUser.getUsername());
+
+            preparedStatement.execute();
+            return "Successful Delivery";
+        } catch(SQLException|NullPointerException e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

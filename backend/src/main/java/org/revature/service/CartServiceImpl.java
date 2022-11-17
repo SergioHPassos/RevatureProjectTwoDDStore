@@ -1,5 +1,6 @@
 package org.revature.service;
 
+import org.revature.driver.Main;
 import org.revature.entities.Products;
 import org.revature.entities.User;
 import org.revature.repositories.CartDAO;
@@ -38,5 +39,10 @@ public class CartServiceImpl implements CartService{
     @Override
     public ArrayList<Products> deleteCartProduct(Products product) {
         return this.cartDAO.deleteCartProduct(product);
+    }
+
+    @Override
+    public String checkout(User user) {
+        return this.cartDAO.checkout(Main.currentUser);
     }
 }

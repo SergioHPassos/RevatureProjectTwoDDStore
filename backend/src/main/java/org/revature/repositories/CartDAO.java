@@ -15,6 +15,8 @@ public interface CartDAO {
 
     ArrayList<Products> deleteCartProduct(Products product);
 
+    String checkout(User user);
+
     
 
 

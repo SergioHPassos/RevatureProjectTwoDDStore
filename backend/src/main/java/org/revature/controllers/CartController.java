@@ -54,7 +54,6 @@ public class CartController {
     public Handler updateUserCart = (ctx) -> {
         String json = ctx.body();
         Gson gson = new Gson();
-        // Currently not even using this, using Main.current user instead.
         Products product = (Products) gson.fromJson(json, Products.class);
         Products updatedProduct = Main.cartService.updateCartProduct(product);
         if (Main.currentUser == null){
@@ -72,7 +71,6 @@ public class CartController {
     public Handler deleteCartProduct = (ctx) -> {
         String json = ctx.body();
         Gson gson = new Gson();
-        // Currently not even using this, using Main.current user instead.
         Products product = (Products) gson.fromJson(json, Products.class);
         int previous = 0;
         if (Main.currentUser == null){
@@ -96,6 +94,27 @@ public class CartController {
            }
            ctx.status(200);
            ctx.result(jsonString);
+        }
+    };
+
+    public Handler checkout = (ctx) -> {
+        String json = ctx.body();
+        Gson gson = new Gson();
+        // Currently not even using this, using Main.current user instead.
+        User user = (User) gson.fromJson(json, User.class);
+        String jsonString = Main.cartService.checkout(Main.currentUser);
+        if (Main.currentUser == null){
+            ctx.status(400);
+            ctx.result("Please Login First!");
+        }else if(Main.cart.size() < 1) {
+            ctx.status(400);
+            ctx.result("Your cart is empty!");
+        }else if(jsonString == null) {
+            ctx.status(400);
+            ctx.result("Be sure to login first and have products in your cart!");
+        } else {
+            ctx.status(200);
+            ctx.result(jsonString);
         }
     };
 }

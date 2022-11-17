@@ -14,4 +14,6 @@ public interface CartService {
     Products updateCartProduct(Products product);
 
     ArrayList<Products> deleteCartProduct(Products product);
+
+    String checkout(User user);
 }
