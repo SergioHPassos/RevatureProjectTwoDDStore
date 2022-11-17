@@ -17,7 +17,10 @@ export class CartComponent implements OnInit {
   currentUser: any = null;
   
   ngOnInit(): void {
-    this.findUser();
+   (async () => {
+    this.currentUser = await this.userService.getCurrentUser();
+   });
+   this.getCart();
   }
 
   async getCart(){
@@ -25,28 +28,10 @@ export class CartComponent implements OnInit {
     this.cartList = gotCart;
   }
 
-  async updateCart(id: number, quantity: number){
-    const updateProduct: Product =
-    {
-      id: id,
-      name: "",
-      type: "",
-      subtype: "",
-      price: 0,
-      image: "",
-      stock: 0,
-      rarity: "",
-      cartQuant: quantity,
-      description: ""
-    };
-    const gotCart: Product[] = await this.cartService.updateCartProduct(updateProduct);
-    this.cartList = gotCart;
-  }
-
-  async removeItem(id: number){
+  async removeItem(event: any){
     const removeProduct: Product =
     {
-      id: id,
+      id: event,
       name: "",
       type: "",
       subtype: "",
@@ -61,8 +46,8 @@ export class CartComponent implements OnInit {
     this.cartList = gotCart;
   }
 
-  async findUser(){
-    this.currentUser = await this.userService.getCurrentUser();
+  async checkoutCart(){
+    const result = await this.cartService.checkout(this.currentUser);
   }
 
 }

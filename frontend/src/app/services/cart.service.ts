@@ -23,8 +23,8 @@ export class CartService {
     return gotProduct;
   }
 
-  async updateCartProduct(product: Product):Promise<Product[]>{
-    const observable = this.http.post<Product[]>("placeholder for update", product);
+  async updateCartProduct(product: Product):Promise<Product>{
+    const observable = this.http.post<Product>("placeholder for update", product);
     const gotProduct = await firstValueFrom(observable);
     return gotProduct;
   }

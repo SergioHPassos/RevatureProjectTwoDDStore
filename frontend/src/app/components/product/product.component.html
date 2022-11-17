@@ -1,1 +1,16 @@
-<p>product works!</p>
+<div *ngIf="productID !== null">
+    <h3>{{savedProduct.name}}</h3>
+    <!-- leaving this for sergio since he'll know how to convert -->
+    <img src="{{imageURL}}">
+    <p>{{savedProduct.description}}</p>
+    <h1>{{savedProduct.price}}</h1>
+    <button (click)="addProductToCart()">Add to Cart</button>
+    <table>
+        <tr *ngFor="let i of relatedProducts">
+            <!-- card components go here -->
+        </tr>
+    </table>
+</div>
+<div *ngIf="productID === null">
+    <h3>404, product not found!</h3>
+</div>
