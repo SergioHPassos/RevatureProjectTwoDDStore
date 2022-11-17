@@ -1,15 +1,27 @@
-<div class="container d-flex align-items-center justify-content-center flex-wrap">
+<div
+  class="container d-flex align-items-center justify-content-center flex-wrap"
+>
   <div class="box">
-      <div class="body">
-          <div class="imgContainer">
-              <img src="{{inputProduct.image}}" alt="">
-          </div>
-          <div class="content d-flex flex-column align-items-center justify-content-center">
-              <div>
-                  <h3 class="text-white fs-5">{{inputProduct.name}}</h3>
-                  <p class="fs-6 text-white">{{inputProduct.description}}</p>
-              </div>
-          </div>
+    <div class="body">
+      <div class="imgContainer">
+        <img src="{{ inputProduct?.image }}" alt="" />
       </div>
+      <div
+        class="content d-flex flex-column align-items-center justify-content-center"
+      >
+        <div
+          [ngClass]="
+            'flex flex-col gap-y-4 bg-gradient-to-r ' +
+            (inputProduct?.rarity === 'Rare'
+              ? 'from-yellow-200'
+              : 'from-gray-100') +
+            ' to-white'
+          "
+        >
+          <h3 class="fs-5 font-semibold">{{ inputProduct?.name }}</h3>
+          <p class="fs-6">{{ inputProduct?.description }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
