@@ -13,6 +13,8 @@ import { UserComponent } from './components/user/user.component';
 import { LogregComponent } from './components/logreg/logreg.component';
 import { FormsModule } from '@angular/forms';
 import { CartproductComponent } from './components/cartproduct/cartproduct.component';
+import { CardComponent } from './components/card/card.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { CartproductComponent } from './components/cartproduct/cartproduct.compo
     UserComponent,
     LogregComponent,
     CartproductComponent
+    CardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
