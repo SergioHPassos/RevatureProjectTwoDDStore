@@ -37,4 +37,8 @@ export class LogregComponent implements OnInit {
     setTimeout( () => this.router.navigateByUrl("/user"), 2000);
   }
 
+  toggleMode(){
+    this.registerMode = !this.registerMode;
+  }
+
 }

@@ -13,6 +13,7 @@ import { UserComponent } from './components/user/user.component';
 import { LogregComponent } from './components/logreg/logreg.component';
 import { CardComponent } from './components/card/card.component';
 import { DropdownButtonComponent } from './dropdown-button/dropdown-button.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DropdownButtonComponent } from './dropdown-button/dropdown-button.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
