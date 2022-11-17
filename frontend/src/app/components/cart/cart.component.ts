@@ -46,4 +46,8 @@ export class CartComponent implements OnInit {
     this.cartList = gotCart;
   }
 
+  async checkoutCart(){
+    const result = await this.cartService.checkout(this.currentUser);
+  }
+
 }

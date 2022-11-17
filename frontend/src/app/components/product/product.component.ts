@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
   }
 
   async addProductToCart(){
-    this.cartService.addToCart(this.savedProduct);
+    const input = await this.cartService.addToCart(this.savedProduct);
   }
 
 }
