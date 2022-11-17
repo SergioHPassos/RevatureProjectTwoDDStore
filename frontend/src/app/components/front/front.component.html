@@ -1,3 +1,8 @@
 <div class="flex flex-col">
   <app-sidebar></app-sidebar>
+  <table>
+    <tr *ngFor="let i of products">
+        <app-card [inputProduct]= i></app-card>
+    </tr>
+</table>
 </div>
