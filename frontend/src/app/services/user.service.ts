@@ -11,25 +11,25 @@ export class UserService {
   constructor(private http : HttpClient) { }
 
   async getCurrentUser():Promise<User>{
-    const observable = this.http.get<User>("placeholder");
+    const observable = this.http.get<User>("http://localhost:8080/getCurrentUser");
     const user = await firstValueFrom(observable);
     return user;
   }
 
   async loginUser(user: User):Promise<User>{
-    const observable = this.http.post<User>("placeholder for login", user);
+    const observable = this.http.post<User>("http://localhost:8080/logInUser", user);
     const foundUser = await firstValueFrom(observable);
     return foundUser;
   }
 
   async registerUser(user: User):Promise<User>{
-    const observable = this.http.post<User>("placeholder for register", user);
+    const observable = this.http.post<User>("http://localhost:8080/registerUser", user);
     const foundUser = await firstValueFrom(observable);
     return foundUser;
   }
 
   async updateUser(user: User):Promise<User>{
-    const observable = this.http.post<User>("placeholder for update", user);
+    const observable = this.http.post<User>("http://localhost:8080/updateUser", user);
     const foundUser = await firstValueFrom(observable);
     return foundUser;
   }
