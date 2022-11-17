@@ -1,0 +1,46 @@
+<div>
+  <div class="flex dropend relative">
+    <button
+      class="dropdown-toggle px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap"
+      type="button"
+      id="dropdownMenuButton1e"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+      (click)="toggleIsDropped()"
+    >
+      {{ type }}
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fas"
+        data-icon="caret-right"
+        class="w-1.5 ml-2"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 192 512"
+      >
+        <path
+          fill="currentColor"
+          d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"
+        ></path>
+      </svg>
+    </button>
+    <div class="relative">
+      <ul
+        [ngClass]="
+          'flex flex-col dropdown-menu min-w-max absolute bg-white text-base z-50 py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding top-8 right-0 border-none ' +
+          isDropped
+        "
+        aria-labelledby="dropdownMenuButton1e"
+      >
+        <li *ngFor="let subtype of subtypes">
+          <a
+            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+            href="#"
+            >{{ subtype }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
