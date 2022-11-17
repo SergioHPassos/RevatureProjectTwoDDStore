@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private productService:ProductService, private router: Router, private activatedRoute:ActivatedRoute) { }
+  constructor(private productService:ProductService, private cartService:CartService, private router: Router, private activatedRoute:ActivatedRoute) { }
 
   productID: any = this.activatedRoute.snapshot.paramMap.get('id');
   savedProduct: any = null;
@@ -38,6 +39,10 @@ export class ProductComponent implements OnInit {
         this.relatedProducts = await this.productService.getProductByType(this.savedProduct);
       })
     }
+  }
+
+  async addProductToCart(){
+    this.cartService.addToCart(this.savedProduct);
   }
 
 }
