@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { CartproductComponent } from './components/cartproduct/cartproduct.component';
 import { CardComponent } from './components/card/card.component';
 import { LoginComponent } from './components/login/login.component';
+import { DropdownButtonComponent } from './dropdown-button/dropdown-button.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './components/login/login.component';
     LogregComponent,
     CartproductComponent
     CardComponent,
-    LoginComponent
+    LoginComponent,
+    DropdownButtonComponent
   ],
   imports: [
     BrowserModule,

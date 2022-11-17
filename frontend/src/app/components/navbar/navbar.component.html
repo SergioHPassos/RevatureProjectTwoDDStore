@@ -1,46 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="" alt="Image Place Holder" width="30" height="24" />
-      Discounts & Deliveries</a
-    >
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home">Shop</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Account
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" routerLink="/user">User Profile</a>
-            </li>
-            <li><a class="dropdown-item" routerLink="/cart">Cart</a></li>
-            <li><a class="dropdown-item" href="#">Log Out</a></li>
-          </ul>
-        </li>
-      </ul>
+<!-- padding -->
+<div class="p-4">
+  <!-- card -->
+  <div
+    class="flex flex-col justify-between items-center w-full shadow-lg rounded-lg p-2 bg-gradient-to-r from-red-200 via-red-50 to-white"
+  >
+    <!-- logo -->
+    <div class="w-[30%] md:max-w-[10%]">
+      <img
+        src="https://logos-world.net/wp-content/uploads/2021/12/DnD-Symbol.png"
+        alt="logo"
+      />
+    </div>
+
+    <!-- links -->
+    <div class="flex flex-row gap-3 font-semibold text-xl">
+      <a routerLink="/home">Shop</a>
+      <a routerLink="/user">Profile</a>
+      <a routerLink="/cart">Cart</a>
     </div>
   </div>
-</nav>
+</div>
