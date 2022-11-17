@@ -12,31 +12,31 @@ export class CartService {
   constructor(private http : HttpClient) { }
 
   async getUserCart(user: User):Promise<Product[]>{
-    const observable = this.http.post<Product[]>("placeholder",user);
+    const observable = this.http.post<Product[]>("http://localhost:8080/getUserCart", user);
     const products = await firstValueFrom(observable);
     return products;
   }
 
   async addToCart(product: Product):Promise<Product[]>{
-    const observable = this.http.post<Product[]>("placeholder for add", product);
+    const observable = this.http.post<Product[]>("http://localhost:8080/addToCart", product);
     const gotProduct = await firstValueFrom(observable);
     return gotProduct;
   }
 
   async updateCartProduct(product: Product):Promise<Product>{
-    const observable = this.http.post<Product>("placeholder for update", product);
+    const observable = this.http.post<Product>("http://localhost:8080/updateCart", product);
     const gotProduct = await firstValueFrom(observable);
     return gotProduct;
   }
 
   async deleteCartProduct(product: Product):Promise<Product[]>{
-    const observable = this.http.post<Product[]>("placeholder for delete", product);
+    const observable = this.http.post<Product[]>("http://localhost:8080/deleteCartProduct", product);
     const gotProduct = await firstValueFrom(observable);
     return gotProduct;
   }
 
  async checkout(user:User) {
-  const observable = this.http.post("placeholder for checkout", user);
+  const observable = this.http.post("http://localhost:8080/checkout", user);
   
  }
 }
