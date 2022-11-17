@@ -9,6 +9,7 @@ export class DropdownButtonComponent implements OnInit {
   isDropped = 'hidden';
   @Input() type: string = '';
   @Input() subtypes: string[] = [];
+  @Input() classStyle: string = "";
 
   constructor() {}
 

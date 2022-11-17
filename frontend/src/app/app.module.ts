@@ -12,7 +12,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserComponent } from './components/user/user.component';
 import { LogregComponent } from './components/logreg/logreg.component';
 import { CardComponent } from './components/card/card.component';
-import { LoginComponent } from './components/login/login.component';
 import { DropdownButtonComponent } from './dropdown-button/dropdown-button.component';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { DropdownButtonComponent } from './dropdown-button/dropdown-button.compo
     UserComponent,
     LogregComponent,
     CardComponent,
-    LoginComponent,
     DropdownButtonComponent
   ],
   imports: [

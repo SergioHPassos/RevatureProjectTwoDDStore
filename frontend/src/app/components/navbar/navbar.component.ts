@@ -6,6 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  types = {
+    type: {
+      user: 'USER',
+    },
+    subtypes: {
+      userB: ['Register', 'Log In', 'Wrong User? Log Off'],
+    },
+  };
 
   constructor() { }
 

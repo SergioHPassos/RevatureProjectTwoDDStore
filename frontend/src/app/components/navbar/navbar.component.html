@@ -14,9 +14,13 @@
 
     <!-- links -->
     <div class="flex flex-row gap-3 font-semibold text-xl">
-      <a routerLink="/home">Shop</a>
+      <a routerLink="/home">Home</a>
       <a routerLink="/user">Profile</a>
       <a routerLink="/cart">Cart</a>
+      <app-dropdown-button class="flex flex-col justify-between items-center w-full shadow-lg rounded-lg p-2 bg-gradient-to-r from-red-200 via-red-50 to-white"
+      [type]="types.type.user"
+      [subtypes]="types.subtypes.userB"
+    > </app-dropdown-button>
     </div>
   </div>
 </div>
