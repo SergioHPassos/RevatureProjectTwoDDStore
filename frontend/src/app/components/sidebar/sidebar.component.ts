@@ -9,12 +9,14 @@ export class SidebarComponent implements OnInit {
   types = {
     type: {
       sword: 'SWORD',
+      armour: 'ARMOUR',
       shield: 'SHIELD',
       potion: 'POTION',
     },
     subtypes: {
-      sword: ['DAGGER', 'SHORT', 'LONG'],
-      shield: ['USELESS', 'LARGE', 'GIANT ONLY'],
+      sword: ['DAGGER', 'SHORT', 'LONG', 'RAPIER', 'TWO-HANDED', 'GIANT ONLY'],
+      armour: ['HEAVY', 'MEDIUM', 'LIGHT', 'MAGIC ROBES', 'GIANT ONLY'],
+      shield: [ 'BUCKLER','KITE', 'HEATER', 'TOWER','GIANT ONLY'],
       potion: ['HEALING', 'MANA', 'BUFF'],
     },
   };
