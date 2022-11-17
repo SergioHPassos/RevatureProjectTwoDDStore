@@ -34,4 +34,9 @@ export class CartService {
     const gotProduct = await firstValueFrom(observable);
     return gotProduct;
   }
+
+ async checkout(user:User) {
+  const observable = this.http.post("placeholder for checkout", user);
+  
+ }
 }
