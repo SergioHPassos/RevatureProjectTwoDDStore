@@ -66,10 +66,9 @@ public class CartDAOPostgres implements CartDAO {
                 checkedProduct.setDiscount(rs.getBoolean("discount"));
                 checkedProduct.setImage(rs.getBytes("image"));
             }
-            // Return null if there is not enough stock.
-            //TODO: Might want to do something other than return null to inform user stock is empty.
+            // Return all remaining stock if there is requested amount is too high.
             if (checkedProduct.getStock() < product.getCartAmount()){
-                return null;
+                product.setCartAmount(checkedProduct.getStock());
             }
             System.out.println("checked Name = "+checkedProduct.getName());
             System.out.println("cart size = "+Main.cart.size());
@@ -207,12 +206,10 @@ public class CartDAOPostgres implements CartDAO {
                     checkedProduct.setDiscount(rs.getBoolean("discount"));
                     checkedProduct.setImage(rs.getBytes("image"));
                 }
-                // Return null if there is not enough stock to remove.
-                //TODO: Might want to do something other than return null to inform user stock is empty.
+                // Return all remaining stock if the requested amount is larger than available stock.
                 if (checkedProduct.getStock() < amountDifference){
                     amountDifference = checkedProduct.getStock();
                     Main.cart.get(cartNum).setCartAmount(oldAmount+amountDifference);
-                    System.out.println(Main.cart.get(cartNum).getCartAmount());
                 }
                 // Updates the stock to take out the number of items added to a cart.
                 sql = "update stock set stockcount = ? where itemname = ?";
@@ -236,7 +233,6 @@ public class CartDAOPostgres implements CartDAO {
             if (result == 0){
                 return null;
             } else {
-                System.out.println(Main.cart.get(cartNum).getCartAmount());
                 return Main.cart.get(cartNum);
             }
         }catch (SQLException e) {
