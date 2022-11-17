@@ -13,6 +13,7 @@ import { UserComponent } from './components/user/user.component';
 import { LogregComponent } from './components/logreg/logreg.component';
 import { CardComponent } from './components/card/card.component';
 import { LoginComponent } from './components/login/login.component';
+import { DropdownButtonComponent } from './dropdown-button/dropdown-button.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './components/login/login.component';
     UserComponent,
     LogregComponent,
     CardComponent,
-    LoginComponent
+    LoginComponent,
+    DropdownButtonComponent
   ],
   imports: [
     BrowserModule,
