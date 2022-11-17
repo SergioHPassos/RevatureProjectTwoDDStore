@@ -27,18 +27,13 @@ import { DropdownButtonComponent } from './dropdown-button/dropdown-button.compo
     NavbarComponent,
     UserComponent,
     LogregComponent,
-    CartproductComponent
+    CartproductComponent,
     CardComponent,
     LoginComponent,
-    DropdownButtonComponent
+    DropdownButtonComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
