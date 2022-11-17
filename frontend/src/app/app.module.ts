@@ -27,7 +27,7 @@ import { DropdownButtonComponent } from './dropdown-button/dropdown-button.compo
     NavbarComponent,
     UserComponent,
     LogregComponent,
-    CartproductComponent
+    CartproductComponent,
     CardComponent,
     LoginComponent,
     DropdownButtonComponent
