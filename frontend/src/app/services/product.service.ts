@@ -7,13 +7,8 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(private http: HttpClient) {
-    this.productsSubject.subscribe((value) => {
-      this.products = value;
-    });
-  }
+  constructor(private http: HttpClient) {}
 
-  products: Product[] = [];
   productsSubject: Subject<Product[]> = new Subject<Product[]>();
 
   updateProducts(products: Product[]) {
