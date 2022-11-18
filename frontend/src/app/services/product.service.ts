@@ -20,13 +20,10 @@ export class ProductService {
     this.productsSubject.next(products);
   }
 
-  private tmpProducts: Observable<Product[]> = new Observable();
-
   async getAllProducts(): Promise<Product[]> {
     const observable = this.http.get<Product[]>(
       'http://localhost:8080/getProducts'
     );
-    this.tmpProducts = observable;
     const products = await firstValueFrom(observable);
     this.updateProducts(products);
     return products;
