@@ -1,12 +1,4 @@
-<div class="flex justify-center items-center flex-col">
-  <button
-    class="border bg-slate-700 text-white px-4 py-2 rounded-lg"
-    (click)="getCurrentUser()"
-  >
-    get current user
-  </button>
-</div>
-<div *ngIf="username != ''" class="p-4">
+<div *ngIf="currentUser.username != ''" class="p-4">
   <div
     class="flex justify-center items-center flex-col py-5 px-4 bg-white border"
   >
@@ -31,11 +23,11 @@
       <div class="flex flex-col gap-3 text-xl font-semibold">
         <div class="flex flex-col">
           <p class="text-sm font-normal text-gray-400">username:</p>
-          <p class="">{{ username }}</p>
+          <p class="">{{ currentUser.username }}</p>
         </div>
         <div class="flex flex-col">
           <p class="text-sm font-normal text-gray-400">address:</p>
-          <p class="">{{ address }}</p>
+          <p class="">{{ currentUser.address }}</p>
         </div>
       </div>
     </div>

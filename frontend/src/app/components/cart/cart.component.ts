@@ -19,6 +19,8 @@ export class CartComponent implements OnInit {
   cartList: any = null;
   currentUser: any = null;
 
+  cart: Product[] = [];
+
   ngOnInit(): void {
     async () => {
       this.currentUser = await this.userService.getCurrentUser();
