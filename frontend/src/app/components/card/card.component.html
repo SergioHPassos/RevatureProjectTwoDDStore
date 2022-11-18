@@ -18,7 +18,7 @@
             (product?.rarity === 'Rare' ? 'text-yellow-400' : 'text-slate-700')
           "
         >
-          {{ product?.price }}
+          {{ product?.name }}
         </p>
       </div>
       <div
@@ -31,7 +31,16 @@
             ' to-white'
           "
         >
-          <h3 class="fs-5 font-semibold">{{ product?.name }}</h3>
+          <h3
+            [ngClass]="
+              'fs-5 font-semibold' +
+              (product?.rarity === 'Rare'
+                ? 'text-yellow-400'
+                : 'text-slate-700')
+            "
+          >
+            {{ product?.price }}
+          </h3>
           <p class="fs-6">{{ product?.description }}</p>
         </div>
       </div>
