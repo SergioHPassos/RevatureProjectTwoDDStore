@@ -23,8 +23,9 @@ public class ProductController {
             for (int i = 0; i < products.size(); i++){
                 jsonString += products.get(i).toString() + "\n\r";
             }
+             String tmpJSON = gson.toJson(products); // return formatted json string
             ctx.status(200);
-            ctx.result(jsonString);
+            ctx.result(tmpJSON);
         }
     };
     public Handler getProductsbyType = (ctx) -> {
@@ -40,8 +41,9 @@ public class ProductController {
             for (int i = 0; i < verifiedproduct.size(); i++){
                 jsonString += verifiedproduct.get(i).toString() + "\n\r";
             }
+            String tmpJSON = gson.toJson(verifiedproduct); // return formatted json string
             ctx.status(200);
-            ctx.result(jsonString);
+            ctx.result(tmpJSON);
         }
     };
     public Handler getProductsbyTypeAndSubtype = (ctx) -> {
@@ -57,8 +59,9 @@ public class ProductController {
             for (int i = 0; i < verifiedproduct.size(); i++){
                 jsonString += verifiedproduct.get(i).toString() + "\n\r";
             }
+            String tmpJSON = gson.toJson(verifiedproduct); // return formatted json string
             ctx.status(200);
-            ctx.result(jsonString);
+            ctx.result(tmpJSON);
         }
     };
 
