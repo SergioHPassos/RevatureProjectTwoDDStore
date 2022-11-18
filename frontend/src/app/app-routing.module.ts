@@ -6,14 +6,14 @@ import { ProductComponent } from './components/product/product.component';
 import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
-  {path:"home", component: FrontComponent},
-  {path:"product", component: ProductComponent},
-  {path:"cart", component: CartComponent},
-  {path:"user", component:UserComponent}
+  { path: '', component: FrontComponent },
+  { path: 'product', component: ProductComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'user', component: UserComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
