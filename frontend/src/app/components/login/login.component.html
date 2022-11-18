@@ -1,53 +1,78 @@
-<form>
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-      <input type="email" id="form2Example1" class="form-control" />
-      <label class="form-label" for="form2Example1">Email address</label>
-    </div>
-  
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-      <input type="password" id="form2Example2" class="form-control" />
-      <label class="form-label" for="form2Example2">Password</label>
-    </div>
-  
-    <!-- 2 column grid layout for inline styling -->
-    <div class="row mb-4">
-      <div class="col d-flex justify-content-center">
-        <!-- Checkbox -->
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-          <label class="form-check-label" for="form2Example31"> Remember me </label>
+<div class="p-4">
+  <div class="flex justify-center items-center border rounded-lg py-4">
+    <form class="flex flex-col gap-4">
+      <!-- Email input -->
+      <div class="flex flex-col gap-1">
+        <label class="form-label" for="form2Example1">Email address</label>
+        <input
+          type="email"
+          id="form2Example1"
+          class="border rounded-lg px-2 py-1 focus:shadow-lg outline-none"
+        />
+      </div>
+
+      <!-- Password input -->
+      <div class="flex flex-col gap-1">
+        <label class="form-label" for="form2Example2">Password</label>
+        <input
+          type="password"
+          id="form2Example2"
+          class="border rounded-lg px-2 py-1 focus:shadow-lg outline-none"
+        />
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <!-- Checkbox -->
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="form2Example31"
+              checked
+            />
+            <label class="form-check-label" for="form2Example31">
+              Remember me
+            </label>
+          </div>
+        </div>
+
+        <div class="col">
+          <!-- Simple link -->
+          <a href="#!">Forgot password?</a>
         </div>
       </div>
-  
-      <div class="col">
-        <!-- Simple link -->
-        <a href="#!">Forgot password?</a>
+
+      <!-- Submit button -->
+      <button
+        type="button"
+        class="text-slate-700 font-semibold hover:bg-slate-700 hover:text-white rounded-lg transition-all duration-700 py-2 active:scale-90"
+      >
+        Sign in
+      </button>
+
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>Not a member? <a href="#!">Register</a></p>
+        <p>or sign up with:</p>
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-google"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-twitter"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-github"></i>
+        </button>
       </div>
-    </div>
-  
-    <!-- Submit button -->
-    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-  
-    <!-- Register buttons -->
-    <div class="text-center">
-      <p>Not a member? <a href="#!">Register</a></p>
-      <p>or sign up with:</p>
-      <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-facebook-f"></i>
-      </button>
-  
-      <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-google"></i>
-      </button>
-  
-      <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-twitter"></i>
-      </button>
-  
-      <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-github"></i>
-      </button>
-    </div>
-  </form>
+    </form>
+  </div>
+</div>

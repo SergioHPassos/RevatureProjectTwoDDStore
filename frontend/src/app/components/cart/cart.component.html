@@ -3,13 +3,13 @@
 <h4 *ngIf="cartList.length === 0">Loading Cart...</h4>
 
 <table>
-    <thead>
-        <th>Image</th>
-        <th>Item</th>
-        <th>Price</th>
-        <th>Quantity</th>
-    </thead>
-<!--     <tr>
+  <thead>
+    <th>Image</th>
+    <th>Item</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </thead>
+  <!--     <tr>
         <td>"Image"</td>
         <td>Longsword</td>
         <td>$2.99</td>
@@ -18,7 +18,10 @@
             <button>Update Quantity</button>
         </td>
     </tr> -->
-    <tr *ngFor="let i of cartList">
-        <app-cartproduct [inputProduct] = i (change)="removeItem($event)"></app-cartproduct>
-    </tr>
+  <tr *ngFor="let i of cartList">
+    <app-cartproduct
+      [inputProduct]="i"
+      (change)="removeItem($event)"
+    ></app-cartproduct>
+  </tr>
 </table>

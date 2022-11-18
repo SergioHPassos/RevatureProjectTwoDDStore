@@ -8,7 +8,7 @@
     <div class="w-[40%] md:max-w-[30%] p-7">
       <!-- https://logos-world.net/wp-content/uploads/2021/12/DnD-Symbol.png -->
       <img
-        src="https://cdn.discordapp.com/attachments/1035204890114396230/1043015870424809512/DD.png"
+        src="https://cdn.discordapp.com/attachments/1039200091124289616/1043241030557909082/DD.png"
         alt="logo"
       />
     </div>
@@ -23,12 +23,19 @@
       <a
         class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded"
         routerLink="/user"
+        (click)="getCurrentUser()"
         >Profile</a
       >
       <a
         class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded"
         routerLink="/cart"
         >Cart</a
+      >
+      <a
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded"
+        [routerLink]="currentUser.id === -1 ? '/login' : '/'"
+        (click)="logoutCurrentUser()"
+        >{{ currentUser.id === -1 ? "Login" : "Logout" }}</a
       >
     </div>
   </div>

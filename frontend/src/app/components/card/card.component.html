@@ -11,10 +11,10 @@
             : 'border-slate-700')
         "
       >
-        <img *ngIf="product" src="{{ product?.image }} " alt="" />
+        <img *ngIf="product" src="{{ product.image }} " alt="" />
         <p
           [ngClass]="
-            'absolute right-2 bottom-2 font-bold text-2xl ' +
+            'absolute right-2 bottom-2 font-bold text-xl ' +
             (product?.rarity === 'Rare' ? 'text-yellow-400' : 'text-slate-700')
           "
         >
@@ -26,14 +26,14 @@
       >
         <div
           [ngClass]="
-            'flex flex-col gap-y-4 bg-gradient-to-r ' +
+            'flex flex-col gap-y-4 bg-gradient-to-l ' +
             (product?.rarity === 'Rare' ? 'from-yellow-200' : 'from-gray-100') +
             ' to-white'
           "
         >
           <h3
             [ngClass]="
-              'fs-5 font-semibold' +
+              'fs-5 font-semibold ' +
               (product?.rarity === 'Rare'
                 ? 'text-yellow-400'
                 : 'text-slate-700')
@@ -42,6 +42,11 @@
             {{ product?.price }}
           </h3>
           <p class="fs-6">{{ product?.description }}</p>
+          <button
+            class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded active:scale-90"
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
