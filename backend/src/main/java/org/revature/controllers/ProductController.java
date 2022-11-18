@@ -2,6 +2,7 @@ package org.revature.controllers;
 
 import com.google.gson.Gson;
 import io.javalin.http.Handler;
+import org.postgresql.shaded.com.ongres.scram.common.bouncycastle.base64.Base64;
 import org.revature.driver.Main;
 import org.revature.entities.Products;
 import org.revature.repositories.ProductDAO;
@@ -78,5 +79,25 @@ public class ProductController {
             ctx.status(200);
             ctx.result(jsonString);
         }
+    };
+
+    // Just for Testing/Data Input
+    public Handler updateProductPicture = (ctx) -> {
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        byte[] array = ctx.bodyAsBytes();
+        if (array == null){
+            ctx.status(400);
+            ctx.result("No file was detected!");
+        } else {
+            ctx.status(200);
+            ProductDAOPostgres postgres = new ProductDAOPostgres();
+            String product = postgres.updateProductPicture(id, array);
+            String HTML_FORMAT = "<img src=\"data:image/jpeg;base64,%1$s\" />";
+            String b64Image = Base64.toBase64String(array);
+            String html = String.format(HTML_FORMAT, b64Image);
+            ctx.result(html);
+        }
+
+
     };
 }

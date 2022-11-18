@@ -130,4 +130,23 @@ public class ProductDAOPostgres implements ProductDAO{
         }
         return null;
     }
+
+    @Override
+    public String updateProductPicture(int id, byte[] array) {
+        try(Connection conn = DBConnection.getConnection()){
+            String sql = "update stock set image = ? where itemid = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setBytes(1, array);
+            preparedStatement.setInt(2, id);
+            int rs = preparedStatement.executeUpdate();
+            if (rs == 0){
+                return "Failed! Change did not go through!\r\nPlease make sure id# is a valid ticket!";
+            } else {
+                return "Success! Picture was uploaded to ticket #"+id;
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
