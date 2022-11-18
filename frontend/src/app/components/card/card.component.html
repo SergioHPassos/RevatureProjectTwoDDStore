@@ -3,8 +3,23 @@
 >
   <div class="box">
     <div class="body">
-      <div class="imgContainer">
-        <img src="{{ inputProduct?.image }}" alt="" />
+      <div
+        [ngClass]="
+          'imgContainer border-2 ' +
+          (product?.rarity === 'Rare'
+            ? 'border-yellow-400'
+            : 'border-slate-700')
+        "
+      >
+        <img *ngIf="product" src="{{ product?.image }} " alt="" />
+        <p
+          [ngClass]="
+            'absolute right-2 bottom-2 font-bold text-2xl ' +
+            (product?.rarity === 'Rare' ? 'text-yellow-400' : 'text-slate-700')
+          "
+        >
+          {{ product?.price }}
+        </p>
       </div>
       <div
         class="content d-flex flex-column align-items-center justify-content-center"
@@ -12,14 +27,12 @@
         <div
           [ngClass]="
             'flex flex-col gap-y-4 bg-gradient-to-r ' +
-            (inputProduct?.rarity === 'Rare'
-              ? 'from-yellow-200'
-              : 'from-gray-100') +
+            (product?.rarity === 'Rare' ? 'from-yellow-200' : 'from-gray-100') +
             ' to-white'
           "
         >
-          <h3 class="fs-5 font-semibold">{{ inputProduct?.name }}</h3>
-          <p class="fs-6">{{ inputProduct?.description }}</p>
+          <h3 class="fs-5 font-semibold">{{ product?.name }}</h3>
+          <p class="fs-6">{{ product?.description }}</p>
         </div>
       </div>
     </div>

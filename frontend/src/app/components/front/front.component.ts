@@ -12,15 +12,5 @@ import { ProductService } from 'src/app/services/product.service';
 export class FrontComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) {}
 
-  products: Product[] = [];
-
-  ngOnInit(): void {
-    (async () => {
-      this.products = await this.productService.getAllProducts();
-    })();
-  }
-
-  getProducts = async () => {
-    this.products = await this.productService.getAllProducts();
-  };
+  ngOnInit(): void {}
 }

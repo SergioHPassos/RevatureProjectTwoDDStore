@@ -1,19 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, Observable, Subject } from 'rxjs';
 import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.productsSubject.subscribe((value) => {
+      this.products = value;
+    });
+  }
+
+  products: Product[] = [];
+  productsSubject: Subject<Product[]> = new Subject<Product[]>();
+
+  updateProducts(products: Product[]) {
+    this.productsSubject.next(products);
+  }
+
+  private tmpProducts: Observable<Product[]> = new Observable();
 
   async getAllProducts(): Promise<Product[]> {
     const observable = this.http.get<Product[]>(
       'http://localhost:8080/getProducts'
     );
+    this.tmpProducts = observable;
     const products = await firstValueFrom(observable);
+    this.updateProducts(products);
     return products;
   }
 
@@ -23,21 +38,28 @@ export class ProductService {
     return foundProduct;
   }
 
-  async getProductByType(product: Product): Promise<Product[]> {
+  async getProductByType(type: string): Promise<Product[]> {
     const observable = this.http.post<Product[]>(
-      'placeholder for type',
-      product
+      'http://localhost:8080/getProductsbyType',
+      {
+        type: type,
+      }
     );
     const foundProducts = await firstValueFrom(observable);
+    this.updateProducts(foundProducts);
     return foundProducts;
   }
 
-  async getProductBySubtype(product: Product): Promise<Product[]> {
+  async getProductBySubtype(type: string, subtype: string): Promise<Product[]> {
     const observable = this.http.post<Product[]>(
-      'placeholder for subtype',
-      product
+      'http://localhost:8080/getProductsbyTypeAndSubtype',
+      {
+        type: type,
+        subtype: subtype,
+      }
     );
     const foundProducts = await firstValueFrom(observable);
+    this.updateProducts(foundProducts);
     return foundProducts;
   }
 }
