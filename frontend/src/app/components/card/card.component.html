@@ -11,7 +11,8 @@
             : 'border-slate-700')
         "
       >
-        <img *ngIf="product" src="{{ product?.image }} " alt="" />
+        <img *ngIf="product" src="{{ product.image }} " alt="" />
+        <!-- Put background image within p to give bacground image to text -->
         <p
           [ngClass]="
             'absolute right-2 bottom-2 font-bold text-2xl ' +
@@ -21,9 +22,11 @@
           {{ product?.name }}
         </p>
       </div>
+      <!-- Put background image within below div for background of the back of the card -->
       <div
         class="content d-flex flex-column align-items-center justify-content-center"
       >
+      <!-- Put background image within below div for background for text on the back of the card  -->
         <div
           [ngClass]="
             'flex flex-col gap-y-4 bg-gradient-to-r ' +
@@ -31,6 +34,7 @@
             ' to-white'
           "
         >
+        <!-- Put background image in h3 to give background to price -->
           <h3
             [ngClass]="
               'fs-5 font-semibold' +
