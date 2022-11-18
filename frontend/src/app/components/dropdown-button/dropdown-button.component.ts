@@ -21,12 +21,18 @@ export class DropdownButtonComponent implements OnInit {
 
   getType = (type: string) => {
     switch (type.toLowerCase()) {
-      case 'sword':
-        return 'Swords';
+      case 'weapons':
+        return 'Weapons';
       case 'potion':
         return 'Potions';
-      case 'shield':
-        return 'Shields';
+      case 'armor':
+        return 'Armor';
+      case 'jewelry':
+        return 'Jewelry';
+      case 'gear':
+        return 'Gear';
+      case 'companions':
+        return 'Companions';
     }
 
     return '';
@@ -34,7 +40,7 @@ export class DropdownButtonComponent implements OnInit {
 
   getSubType = (type: string, subtype: string) => {
     switch (type.toLowerCase()) {
-      case 'sword':
+      case 'weapons':
         switch (subtype.toLowerCase()) {
           case 'dagger':
             return 'Daggers';
@@ -48,11 +54,29 @@ export class DropdownButtonComponent implements OnInit {
           case 'rapier':
             return 'Rapiers';
             break;
-          case 'two-handed':
-            return 'Two-Hands';
+          case 'great':
+            return 'Great Swords';
             break;
           case 'giant only':
             return 'Giants';
+            break;
+          case 'longbow':
+            return 'Longbows';
+            break;
+          case 'shortbows':
+            return 'Shortbows';
+            break;
+          case 'axe':
+            return 'Axes';
+            break;
+          case 'katana':
+            return 'Katanas';
+            break;
+          case 'blunt':
+            return 'Bludgeoning';
+            break;
+          case 'pole':
+            return 'Polearms';
             break;
         }
         break;
@@ -61,16 +85,57 @@ export class DropdownButtonComponent implements OnInit {
           case 'healing':
             return 'Healing Potions';
             break;
+          case 'transmutation':
+            return 'Transmutation Potions';
+            break;
+          case 'abjuration':
+            return 'Abjuration Potions';
+            break;
           case 'mana':
             return 'Mana Potions';
             break;
-          case 'buff':
-            return 'Buff Potions';
+          case 'dual':
+            return 'Dual Potions';
             break;
         }
         break;
-      case 'shield':
-        return 'Shields';
+      case 'jewelry':
+        switch (subtype.toLowerCase()) {
+          case 'bangle':
+            return 'Bangles';
+            break;
+          case 'ring':
+            return 'Rings';
+            break;
+        }
+        break;
+      case 'armor':
+        switch (subtype.toLowerCase()) {
+          case 'head':
+            return 'Headwear';
+            break;
+          case 'chest':
+            return 'Chestpieces';
+            break;
+          case 'shield':
+            return 'Shields';
+            break;
+        }
+        break;
+      case 'companions':
+        switch (subtype.toLowerCase()) {
+          case 'pets':
+            return 'Pets';
+            break;
+        }
+        break;
+      case 'gear':
+        switch (subtype.toLowerCase()) {
+          case 'travel':
+            return 'Travel';
+            break;
+        }
+        break;
     }
 
     return '';
