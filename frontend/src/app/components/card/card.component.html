@@ -6,9 +6,7 @@
       <div
         [ngClass]="
           'imgContainer border-2 ' +
-          (product?.rarity === 'Rare'
-            ? 'border-yellow-400'
-            : 'border-slate-700')
+          rarityFunction(product!.rarity)
         "
       >
         <img *ngIf="product" [src]="product.image" />
@@ -16,7 +14,7 @@
         <p
           [ngClass]="
             'absolute right-2 bottom-2 font-bold text-xl ' +
-            (product?.rarity === 'Rare' ? 'text-yellow-400' : 'text-slate-700')
+            rarityFunction(product!.rarity)
           "
         >
           {{ product?.name }}
@@ -35,7 +33,7 @@
         <div
           [ngClass]="
             'flex flex-col gap-y-4 bg-gradient-to-l ' +
-            (product?.rarity === 'Rare' ? 'from-yellow-200' : 'from-gray-100') +
+            rarityFunction(product!.rarity) +
             ' to-white'
           "
           style="
@@ -48,9 +46,7 @@
           <p
             [ngClass]="
               'font-bold text-xl ' +
-              (product?.rarity === 'Rare'
-                ? 'text-yellow-400'
-                : 'text-slate-700')
+              rarityFunction(product!.rarity)
             "
           >
             {{ product?.name }}

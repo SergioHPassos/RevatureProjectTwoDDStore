@@ -2,3 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-image: url("https://cdn.discordapp.com/attachments/1039200091124289616/1044344903775309964/image.png");
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+  }

@@ -20,6 +20,27 @@ export class CardComponent implements OnInit {
     console.log(this.product!.image ? this.product!.image : '');
   }
 
+  rarityFunction(rarity: string): string {
+    switch (rarity) {
+      case 'Rare':
+        return 'text-[#2f70a7]'
+        break;
+      case 'Common':
+        return 'text-[#333333]'
+        break;
+      case 'Legendary':
+        return 'text-[#b1880a]'
+        break;
+      case 'Uncommon':
+        return 'text-[#328023]'
+        break;
+      default:
+        return 'text-[#333333]'
+        break;
+    }
+    return ''
+  }
+
   addToCart = (product: Product) => {
     this.cartService.addToCart(product);
   };
