@@ -37,8 +37,8 @@ export class SidebarComponent implements OnInit {
       'Abjuration Potions',
       'Mana Potions',
       'Dual Potions'],
-      gear: ['Gear'],
-      companions: ['Companions']
+      gear: ['Travel'],
+      companions: ['Pets']
     },
   };
 
