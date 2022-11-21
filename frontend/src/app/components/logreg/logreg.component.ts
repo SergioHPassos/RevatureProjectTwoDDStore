@@ -6,35 +6,44 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-logreg',
   templateUrl: './logreg.component.html',
-  styleUrls: ['./logreg.component.css']
+  styleUrls: ['./logreg.component.css'],
 })
 export class LogregComponent implements OnInit {
+  constructor(private userService: UserService, private router: Router) {}
 
-  constructor(private userService:UserService, private router: Router) { }
-  
-  usernameIn: string = "";
-  passwordIn: string = "";
-  usernameSaved: string = "";
+  usernameIn: string = '';
+  passwordIn: string = '';
+  usernameSaved: string = '';
   //true = register page, false = login page
   registerMode: boolean = false;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  async login(){
-    const user: User = {id:0,username:this.usernameIn, password:this.passwordIn,address:""};
+  async login() {
+    const user: User = {
+      id: 0,
+      username: this.usernameIn,
+      password: this.passwordIn,
+      address: '',
+      image: '',
+    };
     const gotUser: User = await this.userService.loginUser(user);
     this.usernameSaved = gotUser.username;
 
-    setTimeout( () => this.router.navigateByUrl("/user"), 2000);
+    setTimeout(() => this.router.navigateByUrl('/user'), 2000);
   }
 
-  async register(){
-    const user: User = {id:0,username:this.usernameIn, password:this.passwordIn,address:""};
+  async register() {
+    const user: User = {
+      id: 0,
+      username: this.usernameIn,
+      password: this.passwordIn,
+      address: '',
+      image: '',
+    };
     const gotUser: User = await this.userService.registerUser(user);
     this.usernameSaved = gotUser.username;
 
-    setTimeout( () => this.router.navigateByUrl("/user"), 2000);
+    setTimeout(() => this.router.navigateByUrl('/user'), 2000);
   }
-
 }

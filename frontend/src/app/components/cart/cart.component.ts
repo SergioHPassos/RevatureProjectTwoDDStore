@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
     username: '',
     password: '',
     address: '',
+    image: '',
   };
 
   ngOnInit(): void {

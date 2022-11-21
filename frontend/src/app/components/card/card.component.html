@@ -45,14 +45,7 @@
           "
         >
           <!-- name -->
-          <p
-            [ngClass]="
-              'font-bold text-xl ' +
-              (product?.rarity === 'Rare'
-                ? 'text-yellow-400'
-                : 'text-slate-700')
-            "
-          >
+          <p [ngClass]="'font-bold text-xl '">
             {{ product?.name }}
           </p>
 

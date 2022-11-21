@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
     username: '',
     password: '',
     address: '',
+    image: '',
   };
 
   ngOnInit(): void {

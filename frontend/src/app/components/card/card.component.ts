@@ -16,8 +16,15 @@ export class CardComponent implements OnInit {
     private cartService: CartService
   ) {}
 
-  ngOnInit(): void {
-    console.log(this.product!.image ? this.product!.image : '');
+  ngOnInit(): void {}
+
+  testFunction(rarity: string): string {
+    switch (rarity) {
+      case 'Rare':
+        return 'text-[#]';
+        break;
+    }
+    return '';
   }
 
   addToCart = (product: Product) => {

@@ -55,6 +55,7 @@ export class UserService {
       username: '',
       password: '',
       address: '',
+      image: '',
     };
     this.updateCurrentUser(emptyUser);
   }
