@@ -21,9 +21,7 @@ public class CartController {
             ctx.status(404);
             ctx.result("Failed to add!");
         } else {
-            for (int i = 0; i < products.size(); i++){
-                jsonString += products.get(i).toString() + "\n\r";
-            }
+            jsonString = gson.toJson(Main.cart);
             ctx.status(200);
             ctx.result(jsonString);
         }
@@ -43,9 +41,7 @@ public class CartController {
             ctx.status(404);
             ctx.result("Cart is empty!");
         } else {
-            for (int i = 0; i < Main.cart.size(); i++){
-                jsonString += Main.cart.get(i).toString() + "\n\r";
-            }
+            jsonString = gson.toJson(Main.cart);
             ctx.status(200);
             ctx.result(jsonString);
         }
