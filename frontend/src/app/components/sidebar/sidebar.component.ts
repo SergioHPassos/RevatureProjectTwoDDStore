@@ -8,16 +8,37 @@ import { Component, Injectable, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   types = {
     type: {
-      sword: 'SWORD',
-      armour: 'ARMOUR',
-      shield: 'SHIELD',
-      potion: 'POTION',
+      weapons: 'WEAPONS',
+      armor: 'ARMOR',
+      jewelry: 'JEWELRY',
+      potions: 'POTIONS',
+      gear: 'GEAR',
+      companions: 'COMPANIONS'
     },
     subtypes: {
-      sword: ['DAGGER', 'SHORT', 'LONG', 'RAPIER', 'TWO-HANDED', 'GIANT ONLY'],
-      armour: ['HEAVY', 'MEDIUM', 'LIGHT', 'MAGIC ROBES', 'GIANT ONLY'],
-      shield: [ 'BUCKLER','KITE', 'HEATER', 'TOWER','GIANT ONLY'],
-      potion: ['HEALING', 'MANA', 'BUFF'],
+      weapons: ['Longswords',
+      'Great Swords',
+      'Shortswords',
+      'Longbows',
+      'Shortbows',
+      'Daggers',
+      'Axes',
+      'Katanas',
+      'Bludgeoning',
+      'Rapiers',
+      'Polearms'],
+      armor: ['Headwear',
+      'Chestpieces',
+      'Shields'],
+      jewelry: ['Bangles',
+      'Rings'],
+      potions: ['Healing Potions',
+      'Transmutation Potions',
+      'Abjuration Potions',
+      'Mana Potions',
+      'Dual Potions'],
+      gear: ['Gear'],
+      companions: ['Companions']
     },
   };
 
