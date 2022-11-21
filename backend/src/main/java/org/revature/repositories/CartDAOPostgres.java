@@ -28,7 +28,7 @@ public class CartDAOPostgres implements CartDAO {
                 product.setCartAmount(rs.getInt("cartcount"));
                 product.setType(rs.getString("itemtype"));
                 product.setSubtype(rs.getString("itemsubtype"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 Main.cart.add(product);
             }
         }catch (SQLException e) {
@@ -64,7 +64,7 @@ public class CartDAOPostgres implements CartDAO {
                 checkedProduct.setSubtype(rs.getString("itemsubtype"));
                 checkedProduct.setRarity(checkedProduct.getRarity().valueOf(rs.getString("rarity")));
                 checkedProduct.setDiscount(rs.getBoolean("discount"));
-                checkedProduct.setImage(rs.getBytes("image"));
+                checkedProduct.setImage(rs.getString("image"));
             }
             // Return all remaining stock if there is requested amount is too high.
             if (checkedProduct.getStock() < product.getCartAmount()){
@@ -114,7 +114,7 @@ public class CartDAOPostgres implements CartDAO {
                 preparedStatement.setString(4, checkedProduct.getType());
                 preparedStatement.setString(5, checkedProduct.getSubtype());
                 preparedStatement.setString(6, Main.currentUser.getUsername());
-                preparedStatement.setBytes(7, checkedProduct.getImage());
+                preparedStatement.setString(7, checkedProduct.getImage());
                 preparedStatement.execute();
 
                 rs = preparedStatement.getGeneratedKeys();
@@ -173,7 +173,7 @@ public class CartDAOPostgres implements CartDAO {
                     checkedProduct.setSubtype(rs.getString("itemsubtype"));
                     checkedProduct.setRarity(checkedProduct.getRarity().valueOf(rs.getString("rarity")));
                     checkedProduct.setDiscount(rs.getBoolean("discount"));
-                    checkedProduct.setImage(rs.getBytes("image"));
+                    checkedProduct.setImage(rs.getString("image"));
                 }
                 // Updates the stock to take out the number of items added to a cart.
                 sql = "update stock set stockcount = ? where itemname = ?";
@@ -204,7 +204,7 @@ public class CartDAOPostgres implements CartDAO {
                     checkedProduct.setSubtype(rs.getString("itemsubtype"));
                     checkedProduct.setRarity(checkedProduct.getRarity().valueOf(rs.getString("rarity")));
                     checkedProduct.setDiscount(rs.getBoolean("discount"));
-                    checkedProduct.setImage(rs.getBytes("image"));
+                    checkedProduct.setImage(rs.getString("image"));
                 }
                 // Return all remaining stock if the requested amount is larger than available stock.
                 if (checkedProduct.getStock() < amountDifference){
@@ -275,7 +275,7 @@ public class CartDAOPostgres implements CartDAO {
                         checkedProduct.setSubtype(rs.getString("itemsubtype"));
                         checkedProduct.setRarity(checkedProduct.getRarity().valueOf(rs.getString("rarity")));
                         checkedProduct.setDiscount(rs.getBoolean("discount"));
-                        checkedProduct.setImage(rs.getBytes("image"));
+                        checkedProduct.setImage(rs.getString("image"));
                     }
                     // Updates the stock to take out the number of items added to a cart.
                     sql = "update stock set stockcount = ? where itemname = ?";

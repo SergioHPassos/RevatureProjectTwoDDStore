@@ -27,7 +27,7 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setSubtype(rs.getString("itemsubtype"));
                 product.setRarity(product.getRarity().valueOf(rs.getString("rarity")));
                 product.setDiscount(rs.getBoolean("discount"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 products.add(product);
             }
             return products;
@@ -58,7 +58,7 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setSubtype(rs.getString("itemsubtype"));
                 product.setRarity(product.getRarity().valueOf(rs.getString("rarity")));
                 product.setDiscount(rs.getBoolean("discount"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 products.add(product);
             }
             return products;
@@ -90,7 +90,7 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setSubtype(rs.getString("itemsubtype"));
                 product.setRarity(product.getRarity().valueOf(rs.getString("rarity")));
                 product.setDiscount(rs.getBoolean("discount"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 products.add(product);
             }
             return products;
@@ -121,7 +121,7 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setSubtype(rs.getString("itemsubtype"));
                 product.setRarity(product.getRarity().valueOf(rs.getString("rarity")));
                 product.setDiscount(rs.getBoolean("discount"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 products.add(product);
             }
             return products;

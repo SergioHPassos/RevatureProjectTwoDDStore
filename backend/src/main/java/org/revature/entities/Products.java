@@ -13,9 +13,34 @@ public class Products {
     String subtype;
     Rarity rarity;
     boolean discount;
-    byte[] image;
+    String image;
 
     public Products() {
+    }
+
+    @Override
+    public String toString() {
+        return "Products{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", cartAmount=" + cartAmount +
+                ", type='" + type + '\'' +
+                ", subtype='" + subtype + '\'' +
+                ", rarity=" + rarity +
+                ", discount=" + discount +
+                ", image='" + image + '\'' +
+                '}';
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getId() {
@@ -90,36 +115,11 @@ public class Products {
         this.discount = discount;
     }
 
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
-
     public int getCartAmount() {
         return cartAmount;
     }
 
     public void setCartAmount(int cartAmount) {
         this.cartAmount = cartAmount;
-    }
-
-    @Override
-    public String toString() {
-        return "Products{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", stock=" + stock +
-                ", cartAmount=" + cartAmount +
-                ", type='" + type + '\'' +
-                ", subtype='" + subtype + '\'' +
-                ", rarity=" + rarity +
-                ", discount=" + discount +
-                ", image=" + Arrays.toString(image) +
-                '}';
     }
 }
