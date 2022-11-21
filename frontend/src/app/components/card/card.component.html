@@ -11,7 +11,7 @@
             : 'border-slate-700')
         "
       >
-        <img *ngIf="product" src="{{ product.image }} " alt="" />
+        <img *ngIf="product" [src]="product.image" />
         <!-- Put background image within p to give bacground image to text -->
         <p
           [ngClass]="
@@ -34,20 +34,39 @@
             ' to-white'
           "
         >
-          <!-- Put background image in h3 to give background to price -->
-          <h3
+          <!-- name -->
+          <p
             [ngClass]="
-              'fs-5 font-semibold ' +
+              'font-bold text-xl ' +
               (product?.rarity === 'Rare'
                 ? 'text-yellow-400'
                 : 'text-slate-700')
             "
           >
-            {{ product?.price }}
-          </h3>
+            {{ product?.name }}
+          </p>
+
+          <!-- description -->
           <p class="fs-6">{{ product?.description }}</p>
+
+          <!-- price -->
+          <div class="flex w-full">
+            <h3
+              [ngClass]="
+                'fs-5 font-semibold ' +
+                (product?.rarity === 'Rare'
+                  ? 'text-yellow-400'
+                  : 'text-slate-700')
+              "
+            >
+              {{ product?.price }}G
+            </h3>
+          </div>
+
+          <!-- add to cart button -->
           <button
             class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded active:scale-90"
+            (click)="addToCart(product!)"
           >
             Add to Cart
           </button>

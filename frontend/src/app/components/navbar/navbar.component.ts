@@ -21,8 +21,6 @@ export class NavbarComponent implements OnInit {
     this.userService.userSubject.subscribe((user) => {
       this.currentUser = user;
     });
-
-    this.userService.getCurrentUser();
   }
 
   getCurrentUser = () => {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { User } from 'src/app/models/user';
 import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -20,41 +21,20 @@ export class CartComponent implements OnInit {
   currentUser: any = null;
 
   cart: Product[] = [];
+  user: User = {
+    id: -1,
+    username: '',
+    password: '',
+    address: '',
+  };
 
   ngOnInit(): void {
-    async () => {
-      this.currentUser = await this.userService.getCurrentUser();
-    };
-    this.getCart();
-  }
-
-  async getCart() {
-    const gotCart: Product[] = await this.cartService.getUserCart(
-      this.currentUser
-    );
-    this.cartList = gotCart;
-  }
-
-  async removeItem(event: any) {
-    const removeProduct: Product = {
-      id: event,
-      name: '',
-      type: '',
-      subtype: '',
-      price: 0,
-      image: '',
-      stock: 0,
-      rarity: '',
-      cartQuant: 0,
-      description: '',
-    };
-    const gotCart: Product[] = await this.cartService.deleteCartProduct(
-      removeProduct
-    );
-    this.cartList = gotCart;
-  }
-
-  async checkoutCart() {
-    // const result = await this.cartService.checkout(this.currentUser);
+    this.cartService.cartSubject.subscribe((cart) => {
+      this.cart = cart;
+    });
+    this.userService.userSubject.subscribe((user) => {
+      this.user = user;
+    });
+    this.cartService.getUserCart(this.user);
   }
 }

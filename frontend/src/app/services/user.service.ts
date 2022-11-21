@@ -49,7 +49,7 @@ export class UserService {
   }
 
   async logoutUser() {
-    const observable = this.http.get<string>('placeholder for logout');
+    const observable = this.http.get<string>('http://localhost:8080/logout');
     const emptyUser: User = {
       id: -1,
       username: '',

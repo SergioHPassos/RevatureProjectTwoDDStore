@@ -1,7 +1,28 @@
-<td><img src="{{inputProduct.image}}"></td>
-<td>{{inputProduct.name}}</td>
-<td>{{inputProduct.price}}</td>
-<td>
-    <input type="text" placeholder="{{inputProduct.quantity}}" [(ngModel)] ="quantity">
-    <button (click)="updateItem()">Update Quantity</button>
-</td>
+<div class="flex flex-row justify-between w-full">
+  <!-- image -->
+  <div class="">
+    <img [src]="product.image" alt="" />
+  </div>
+
+  <!-- product name -->
+  <div class="">
+    <p>{{ product.name }}</p>
+  </div>
+
+  <!-- quantity -->
+  <div class="flex flex-row gap-2 justify-evenly items-center">
+    <button
+      class="bg-slate-700 text-white px-2 py-2 rounded"
+      (click)="updateQuantity(QUANTITY.INCREMENT)"
+    >
+      +
+    </button>
+    <p>{{ quantity }}</p>
+    <button
+      class="bg-slate-700 text-white px-2 py-2 rounded"
+      (click)="updateQuantity(QUANTITY.DECREMENT)"
+    >
+      -
+    </button>
+  </div>
+</div>

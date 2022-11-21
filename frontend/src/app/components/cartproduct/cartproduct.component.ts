@@ -1,45 +1,41 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-cartproduct',
   templateUrl: './cartproduct.component.html',
-  styleUrls: ['./cartproduct.component.css']
+  styleUrls: ['./cartproduct.component.css'],
 })
 export class CartproductComponent implements OnInit {
+  constructor(
+    private cartService: CartService,
+    private userService: UserService
+  ) {}
 
-  constructor(private cartService:CartService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+  @Input() product: any = null;
 
-  @Input() inputProduct: any = null;
-  quantity: number = this.inputProduct.quantity;
+  quantity: number = 1;
 
-  @Output()
-  notice: EventEmitter<number> = new EventEmitter<number>();
-
-  async updateItem(){
-    const updateProduct: Product =
-    {
-      id: this.inputProduct.id,
-      name: "",
-      type: "",
-      subtype: "",
-      price: 0,
-      image: "",
-      stock: 0,
-      rarity: "",
-      cartQuant: this.quantity,
-      description: ""
-    };
-    if(updateProduct.cartQuant === 0){
-      this.notice.emit(this.inputProduct.id);
+  updateQuantity = (quantity: number) => {
+    // before update
+    if (this.quantity + quantity) {
     }
-    else{
-      const inputProduct: Product = await this.cartService.updateCartProduct(updateProduct);
-    }
-  }
 
+    this.quantity += quantity;
+  };
+
+  // update quantity enum
+  QUANTITY = {
+    INCREMENT: 1,
+    DECREMENT: -1,
+  };
+
+  removeProduct = async (product: Product) => {
+    await this.cartService.deleteCartProduct(product);
+    await this.cartService.getUserCart(await this.userService.getCurrentUser());
+  };
 }
