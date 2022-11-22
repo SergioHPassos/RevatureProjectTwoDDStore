@@ -26,7 +26,7 @@ public class CartServiceImpl implements CartService{
     }
 
     @Override
-    public Products updateCartProduct(Products product) {
+    public ArrayList<Products> updateCartProduct(Products product) {
         if (product.getName().trim().equals("")){
             throw new RuntimeException("Product needs a name.");
         }

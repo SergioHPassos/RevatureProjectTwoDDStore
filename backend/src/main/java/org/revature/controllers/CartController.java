@@ -51,7 +51,7 @@ public class CartController {
         String json = ctx.body();
         Gson gson = new Gson();
         Products product = (Products) gson.fromJson(json, Products.class);
-        Products updatedProduct = Main.cartService.updateCartProduct(product);
+        ArrayList<Products> updatedProduct = Main.cartService.updateCartProduct(product);
         if (Main.currentUser == null){
             ctx.status(400);
             ctx.result("Please Login First!");

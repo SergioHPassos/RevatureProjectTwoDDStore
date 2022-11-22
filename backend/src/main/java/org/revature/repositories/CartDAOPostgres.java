@@ -16,7 +16,7 @@ public class CartDAOPostgres implements CartDAO {
         }
         try (Connection connection = DBConnection.getConnection()) {
             Main.cart = new ArrayList<>();
-            String sql = "select * from carts where username = ?";
+            String sql = "select * from carts where username = ? order by itemname asc";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, Main.currentUser.getUsername());
             preparedStatement.execute();
@@ -131,7 +131,7 @@ public class CartDAOPostgres implements CartDAO {
     }
 
     @Override
-    public Products updateCartProduct(Products product) {
+    public ArrayList<Products> updateCartProduct(Products product) {
         if (Main.currentUser == null) {
             return null;
         }
@@ -233,7 +233,7 @@ public class CartDAOPostgres implements CartDAO {
             if (result == 0){
                 return null;
             } else {
-                return Main.cart.get(cartNum);
+                return Main.cart;
             }
         }catch (SQLException e) {
             e.printStackTrace();

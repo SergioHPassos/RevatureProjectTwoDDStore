@@ -14,21 +14,29 @@ public class UserDaoPostgres implements UserDao {
             return null;
         }
         try (Connection connection = DBConnection.getConnection()) {
-            String sql = "insert into users values(default, ?, ?, ?, ?, ?)";
+            int pfpid = 1;
+            String sql = "select * from profilepictures where image = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, user.getImage());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                pfpid = rs.getInt("pfpid");
+            }
+            sql = "insert into users values(default, ?, ?, ?, ?, ?)";
             //Three possible outcomes
             // 1)no rows return (typical): register the user
             // 2)password matches (user may have clicked Send twice): don't add another row, but populate user_id
             // 3)password mismatch
-            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
             ps.setDate(3, new Date(1923, 01, 24));
             ps.setString(4, user.getAddress());
-            ps.setString(5, user.getImage());
+            ps.setInt(5, pfpid);
 
             ps.execute();
 
-            ResultSet rs = ps.getGeneratedKeys();
+            rs = ps.getGeneratedKeys();
             rs.next();
             int generatedKey = rs.getInt("userid");
             user.setUserId(generatedKey);
