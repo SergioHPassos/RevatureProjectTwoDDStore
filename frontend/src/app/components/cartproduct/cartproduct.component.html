@@ -1,0 +1,29 @@
+<div class="flex flex-row justify-between items-center w-full border-y py-2">
+  <!-- image -->
+  <div class="max-w-[20%]">
+    <img [src]="product.image" alt="" />
+  </div>
+
+  <!-- product name -->
+  <div class="">
+    <p>{{ product.name }}</p>
+    <p>{{ product.price * quantity }}G</p>
+  </div>
+
+  <!-- quantity -->
+  <div class="flex flex-row gap-2 justify-evenly items-center">
+    <button
+      class="bg-slate-700 text-white px-2 py-2 rounded"
+      (click)="updateQuantity(QUANTITY.INCREMENT)"
+    >
+      +
+    </button>
+    <p>{{ product.cartAmount <= 0 ? "1" : product.cartAmount }}</p>
+    <button
+      class="bg-slate-700 text-white px-2 py-2 rounded"
+      (click)="updateQuantity(QUANTITY.DECREMENT)"
+    >
+      -
+    </button>
+  </div>
+</div>

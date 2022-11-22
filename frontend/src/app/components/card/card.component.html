@@ -1,0 +1,75 @@
+<div
+  class="container d-flex align-items-center justify-content-center flex-wrap"
+>
+  <div class="box">
+    <div class="body">
+      <div
+        [ngClass]="'imgContainer border-2 ' + rarityFunction(product!.rarity)"
+      >
+        <img *ngIf="product" [src]="product.image" />
+        <!-- Put background image within p to give bacground image to text -->
+        <p
+          [ngClass]="
+            'absolute right-2 bottom-2 font-bold text-xl ' +
+            rarityFunction(product!.rarity)
+          "
+        >
+          {{ product?.name }}
+        </p>
+      </div>
+      <!-- Put background image within below div for background of the back of the card -->
+      <div
+        class="content d-flex flex-column align-items-center justify-content-center"
+        style="
+          background-image: url(https://cdn.discordapp.com/attachments/1039200091124289616/1043259553615200277/image.png);
+          object-fit: cover;
+          background-position: center;
+        "
+      >
+        <!-- Put background image within below div for background for text on the back of the card  -->
+        <div
+          [ngClass]="
+            'flex flex-col gap-y-4 bg-gradient-to-l ' +
+            rarityFunction(product!.rarity) +
+            ' to-white'
+          "
+          style="
+            background-image: url(https://i.pinimg.com/originals/40/31/ef/4031ef5e4b16801440a2abb4a7e67afb.jpg);
+            object-fit: cover;
+            background-position: center;
+          "
+        >
+          <!-- name -->
+          <p [ngClass]="'font-bold text-xl '">
+            {{ product?.name }}
+          </p>
+
+          <!-- description -->
+          <p class="fs-6">{{ product?.description }}</p>
+
+          <!-- price -->
+          <!-- <div class="flex w-full">
+            <h3
+              [ngClass]="
+                'fs-5 font-semibold ' +
+                (product?.rarity === 'Rare'
+                  ? 'text-yellow-400'
+                  : 'text-slate-700')
+              "
+            >
+
+            </h3>
+          </div> -->
+
+          <!-- add to cart button -->
+          <button
+            class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded active:scale-90"
+            (click)="addToCart(product!)"
+          >
+            ({{ product?.price }}G) Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

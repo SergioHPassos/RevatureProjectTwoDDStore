@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8373ad5a-3da1-4c6a-87c8-0087b954eca3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/target/classes/org/revature/controllers/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/target/classes/org/revature/entities/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/target/classes/org/revature/repositories/UserDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/target/classes/org/revature/repositories/UserDaoPostgres.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/target/classes/org/revature/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/target/classes/org/revature/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/revature/repositories/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/revature/repositories/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/revature/repositories/UserDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/revature/repositories/UserDaoPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/org/revature/driver/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/org/revature/driver/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/org/revature/service/ProductServicelmpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/org/revature/service/ProductServicelmpl.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="jotero" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2HNLjMVZxAKFLvIENkZbAREJjRE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC INTEL I9 10850K/Documents/Work/revature/onlineTraining/RevatureProjectTwoDDStore/backend&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="ConnectionTest.connection_available" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UtilsTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="UtilsTest" />
+      <option name="MAIN_CLASS_NAME" value="UtilsTest.ConnectionTest" />
+      <option name="METHOD_NAME" value="connection_available" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ConnectionTest.connection_available" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8373ad5a-3da1-4c6a-87c8-0087b954eca3" name="Changes" comment="" />
+      <created>1668120728802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668120728802</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="backend" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="backend" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
