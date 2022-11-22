@@ -23,7 +23,6 @@ public class UserController {
             ctx.result("User is already in use.");
         }else {
             //DON:T EXPOSE SENSITIVE INFO
-            newUser.setPassword("");
             String userJason = gson.toJson(newUser);
             ctx.status(201); //This is a status code that will tell us how things went
             ctx.result(userJason);
