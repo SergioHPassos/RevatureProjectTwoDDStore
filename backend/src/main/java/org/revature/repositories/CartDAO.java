@@ -11,7 +11,7 @@ public interface CartDAO {
 
     ArrayList<Products> addToCart(Products product);
 
-    Products updateCartProduct(Products product);
+    ArrayList<Products> updateCartProduct(Products product);
 
     ArrayList<Products> deleteCartProduct(Products product);
 

@@ -131,7 +131,7 @@ public class CartDAOPostgres implements CartDAO {
     }
 
     @Override
-    public Products updateCartProduct(Products product) {
+    public ArrayList<Products> updateCartProduct(Products product) {
         if (Main.currentUser == null) {
             return null;
         }
@@ -233,7 +233,7 @@ public class CartDAOPostgres implements CartDAO {
             if (result == 0){
                 return null;
             } else {
-                return Main.cart.get(cartNum);
+                return Main.cart;
             }
         }catch (SQLException e) {
             e.printStackTrace();
