@@ -27,7 +27,7 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setSubtype(rs.getString("itemsubtype"));
                 product.setRarity(product.getRarity().valueOf(rs.getString("rarity")));
                 product.setDiscount(rs.getBoolean("discount"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 products.add(product);
             }
             return products;
@@ -58,7 +58,7 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setSubtype(rs.getString("itemsubtype"));
                 product.setRarity(product.getRarity().valueOf(rs.getString("rarity")));
                 product.setDiscount(rs.getBoolean("discount"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 products.add(product);
             }
             return products;
@@ -90,9 +90,10 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setSubtype(rs.getString("itemsubtype"));
                 product.setRarity(product.getRarity().valueOf(rs.getString("rarity")));
                 product.setDiscount(rs.getBoolean("discount"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 products.add(product);
             }
+            System.out.println(products);
             return products;
         } catch(SQLException | NullPointerException e){
             e.printStackTrace();
@@ -121,11 +122,30 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setSubtype(rs.getString("itemsubtype"));
                 product.setRarity(product.getRarity().valueOf(rs.getString("rarity")));
                 product.setDiscount(rs.getBoolean("discount"));
-                product.setImage(rs.getBytes("image"));
+                product.setImage(rs.getString("image"));
                 products.add(product);
             }
             return products;
         } catch(SQLException | NullPointerException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String updateProductPicture(int id, byte[] array) {
+        try(Connection conn = DBConnection.getConnection()){
+            String sql = "update stock set image = ? where itemid = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setBytes(1, array);
+            preparedStatement.setInt(2, id);
+            int rs = preparedStatement.executeUpdate();
+            if (rs == 0){
+                return "Failed! Change did not go through!\r\nPlease make sure id# is a valid ticket!";
+            } else {
+                return "Success! Picture was uploaded to ticket #"+id;
+            }
+        } catch(SQLException e){
             e.printStackTrace();
         }
         return null;

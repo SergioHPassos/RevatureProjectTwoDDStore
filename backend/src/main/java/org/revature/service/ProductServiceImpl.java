@@ -5,10 +5,10 @@ import org.revature.repositories.ProductDAO;
 
 import java.util.ArrayList;
 
-public class ProductServicelmpl implements ProductService{
+public class ProductServiceImpl implements ProductService{
 
     private ProductDAO productDAO;
-    public ProductServicelmpl(ProductDAO productDAO) {
+    public ProductServiceImpl(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
 
@@ -33,7 +33,7 @@ public class ProductServicelmpl implements ProductService{
         } else if(product.getSubtype().trim().equals("")){
             throw new RuntimeException("Product needs a subtype.");
         }else{
-            ArrayList<Products> verifiedProducts = this.productDAO.getProductsbyType(product.getType());
+            ArrayList<Products> verifiedProducts = this.productDAO.getProductsbyTypeAndSubtype(product.getType(), product.getSubtype());
             return verifiedProducts;
         }
     }
