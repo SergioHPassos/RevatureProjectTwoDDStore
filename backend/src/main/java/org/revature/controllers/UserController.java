@@ -25,6 +25,7 @@ public class UserController {
     };
 
     public Handler logout = (ctx) ->{
+        System.out.print("Hello world");
         if(Main.currentUser == null){
             ctx.status(400); //This is a status code that will tell us how things went
             ctx.result("You are not logged in!");

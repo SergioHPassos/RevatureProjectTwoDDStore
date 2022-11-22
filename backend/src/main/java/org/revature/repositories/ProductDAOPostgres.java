@@ -93,6 +93,7 @@ public class ProductDAOPostgres implements ProductDAO{
                 product.setImage(rs.getString("image"));
                 products.add(product);
             }
+            System.out.println(products);
             return products;
         } catch(SQLException | NullPointerException e){
             e.printStackTrace();
