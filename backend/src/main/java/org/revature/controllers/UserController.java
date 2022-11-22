@@ -5,6 +5,10 @@ import io.javalin.http.Handler;
 import org.postgresql.Driver;
 import org.revature.driver.Main;
 import org.revature.entities.User;
+import org.revature.repositories.UserDao;
+import org.revature.repositories.UserDaoPostgres;
+
+import java.util.ArrayList;
 
 public class UserController {
     public Handler registerUser = (ctx) ->{
@@ -77,6 +81,14 @@ public class UserController {
             ctx.status(409);
             ctx.result("Update failed");
         }
+    };
+
+    public Handler getAllPictures = (ctx) ->{
+        Gson gson = new Gson();
+        UserDao userDao = new UserDaoPostgres();
+        ArrayList<String> pictures = userDao.getAllPictures();
+        ctx.status(201); //This is a status code that will tell us how things went
+        ctx.result(pictures.toString());
     };
 
 }

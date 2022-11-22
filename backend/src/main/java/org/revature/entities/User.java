@@ -7,12 +7,12 @@ public class User {
     private String birthday;
 
     private String address;
-    private byte[] image;
+    private String image;
 
     public User() {
     }
 
-    public User(Integer userId, String username, String password, String birthday, byte[] image) {
+    public User(Integer userId, String username, String password, String birthday, String image) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -60,11 +60,11 @@ public class User {
         this.birthday = birthday;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

@@ -37,6 +37,7 @@ public class Main {
         app.get("/getCurrentUser", userController.getCurrentUser);
         app.put("/updateUser", userController.updateUser);
         app.get("/logout", userController.logout);
+        app.get("/getAllPictures", userController.getAllPictures);
 
         ProductController productController = new ProductController();
         app.get("/getProducts", productController.getProducts);
@@ -52,7 +53,7 @@ public class Main {
         app.post("/checkout", cartController.checkout);
 
         // Used for adding images to the database.
-        app.post("/productPicture/{id}", productController.updateProductPicture);
+        //app.post("/productPicture/{id}", productController.updateProductPicture);
 
         // start server
         app.start();
