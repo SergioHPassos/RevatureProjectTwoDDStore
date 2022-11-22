@@ -11,39 +11,30 @@ import { UserService } from 'src/app/services/user.service';
 export class LogregComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
-  usernameIn: string = '';
-  passwordIn: string = '';
-  usernameSaved: string = '';
-  //true = register page, false = login page
-  registerMode: boolean = false;
-
   ngOnInit(): void {}
 
-  async login() {
-    const user: User = {
+  username: string = '';
+  password: string = '';
+  matchingPassword: string = '';
+
+  signInUser = () => {
+    this.userService.loginUser({
       id: 0,
-      username: this.usernameIn,
-      password: this.passwordIn,
+      username: this.username,
+      password: this.password,
       address: '',
       image: '',
-    };
-    const gotUser: User = await this.userService.loginUser(user);
-    this.usernameSaved = gotUser.username;
+    });
+  };
 
-    setTimeout(() => this.router.navigateByUrl('/user'), 2000);
-  }
-
-  async register() {
-    const user: User = {
+  registerUser = () => {
+    this.userService.registerUser({
       id: 0,
-      username: this.usernameIn,
-      password: this.passwordIn,
+      username: this.username,
+      password: this.password,
       address: '',
-      image: '',
-    };
-    const gotUser: User = await this.userService.registerUser(user);
-    this.usernameSaved = gotUser.username;
-
-    setTimeout(() => this.router.navigateByUrl('/user'), 2000);
-  }
+      image:
+        'https://cdn.discordapp.com/attachments/620714464609566753/1044372855246303293/token_2_34.png',
+    });
+  };
 }

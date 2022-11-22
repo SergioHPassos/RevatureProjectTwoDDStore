@@ -52,7 +52,6 @@ export class ProductService {
     );
     const foundProducts = await firstValueFrom(observable);
     this.updateProducts(foundProducts);
-    console.log(foundProducts);
     return foundProducts;
   }
 }

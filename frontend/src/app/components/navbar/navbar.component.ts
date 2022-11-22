@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private _router: Router) {}
 
   currentUser: User = {
     id: -1,
@@ -24,11 +25,12 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  getCurrentUser = () => {
-    this.userService.getCurrentUser();
+  getCurrentUser = async () => {
+    await this.userService.getCurrentUser();
   };
 
-  logoutCurrentUser = () => {
-    this.userService.logoutUser();
+  logoutCurrentUser = async () => {
+    await this.userService.logoutUser();
+    this._router.navigateByUrl('/');
   };
 }

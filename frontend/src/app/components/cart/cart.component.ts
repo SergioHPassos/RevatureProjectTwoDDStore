@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   currentUser: any = null;
 
   cart: Product[] = [];
+  total: number = 0;
   user: User = {
     id: -1,
     username: '',
@@ -33,9 +34,25 @@ export class CartComponent implements OnInit {
     this.cartService.cartSubject.subscribe((cart) => {
       this.cart = cart;
     });
+    this.cartService.total.subscribe((total) => {
+      this.total = total;
+    });
     this.userService.userSubject.subscribe((user) => {
       this.user = user;
     });
-    this.cartService.getUserCart(this.user);
+    this.updateTotal();
+  }
+
+  async updateTotal() {
+    await this.cartService.getUserCart();
+    for (let product of this.cart) {
+      this.total += product.price * (product.cartCount || 1);
+    }
+  }
+
+  async checkout() {
+    await this.cartService.cartCheckout(
+      await this.userService.getCurrentUser()
+    );
   }
 }

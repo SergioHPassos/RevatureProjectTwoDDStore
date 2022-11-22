@@ -1,13 +1,55 @@
 <div class="p-5">
   <div
-    class="flex flex-col justify-center items-center gap-5 border p-5 w-full"
+    *ngIf="cart.length > 0"
+    class="flex flex-col rounded-lg justify-center items-center gap-5 border p-5 w-full bg-white"
   >
+    <!-- title -->
     <h3 class="font-semibold text-xl">Your Cart</h3>
 
-    <div *ngIf="cart.length !== 0" class="w-full flex flex-col gap-5">
-      <div *ngFor="let i of cart" class="">
-        <app-cartproduct [product]="i"></app-cartproduct>
+    <!-- main body -->
+    <div *ngIf="cart.length > 0">
+      <!-- items -->
+      <div *ngIf="cart.length !== 0" class="w-full flex flex-col gap-5">
+        <div *ngFor="let i of cart" class="">
+          <app-cartproduct [product]="i"></app-cartproduct>
+        </div>
+      </div>
+
+      <!-- total -->
+      <div
+        class="flex flex-row justify-between items-center w-full px-5 border-b"
+      >
+        <p></p>
+        <div class="flex flex-row gap-5">
+          <p>Total</p>
+          <p>{{ total }}</p>
+        </div>
+      </div>
+
+      <!-- checkout -->
+      <div class="flex w-full justify-end py-5">
+        <button
+          class="bg-slate-700 px-3 py-1 rounded-lg text-white text-xl hover:shadow-lg hover:shadow-yellow-400 hover:text-yellow-400 animate-bounce hover:animate-none duration-500 active:shadow-none active:bg-yellow-400 active:text-white active:scale-75"
+          (click)="checkout()"
+          routerLink="/"
+        >
+          Checkout
+        </button>
       </div>
     </div>
+  </div>
+
+  <!-- easily digestable information -->
+  <div class="w-full flex flex-col justify-center items-center">
+    <div ngClass="max-w-[25%]" *ngIf="cart.length === 0">
+      <div>
+        <img
+          src="https://cdn.discordapp.com/attachments/1039200091124289616/1044742458698891294/c45efd_7b3815abee1548e1ab36b958471aa0ae_mv2.png"
+          alt="wow so empty meme"
+          class="animate-[spin_4s_linear_infinite]"
+        />
+      </div>
+    </div>
+    <p class="text-white text-xl pt-5">nothing is here...</p>
   </div>
 </div>

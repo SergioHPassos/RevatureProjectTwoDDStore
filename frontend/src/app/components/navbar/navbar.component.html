@@ -2,7 +2,7 @@
 <div class="p-4">
   <!-- card -->
   <div
-    class="flex flex-col justify-between items-center w-full rounded-lg p-2 border text-slate-700"
+    class="flex flex-col justify-between items-center w-full rounded-lg p-2 border text-slate-700 shadow-lg"
     style="
       background-image: url(https://i.pinimg.com/originals/40/31/ef/4031ef5e4b16801440a2abb4a7e67afb.jpg);
       background-size: cover;
@@ -21,26 +21,34 @@
     <!-- links -->
     <div class="flex flex-row gap-3 font-semibold text-xl text-black">
       <a
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
         routerLink="/"
         >Shop</a
       >
       <a
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded"
+        *ngIf="currentUser.username.length > 0"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
         routerLink="/user"
         (click)="getCurrentUser()"
         >Profile</a
       >
       <a
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded"
+        *ngIf="currentUser.username.length > 0"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
         routerLink="/cart"
         >Cart</a
       >
       <a
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded"
-        [routerLink]="currentUser.id === -1 ? '/login' : '/'"
+        *ngIf="currentUser.username.length > 0"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
         (click)="logoutCurrentUser()"
-        >{{ currentUser.id === -1 ? "Login" : "Logout" }}</a
+        >Logout</a
+      >
+      <a
+        *ngIf="currentUser.username.length === 0"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
+        routerLink="/login"
+        >Login</a
       >
     </div>
   </div>

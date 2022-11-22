@@ -16,28 +16,45 @@ export class UserService {
   };
 
   async getCurrentUser(): Promise<User> {
-    const observable = this.http.get<User>(
-      'http://localhost:8080/getCurrentUser'
-    );
-    const user = await firstValueFrom(observable);
-    this.updateCurrentUser(user);
-    return user;
+    try {
+      const observable = this.http.get<User>(
+        'http://localhost:8080/getCurrentUser'
+      );
+      const user = await firstValueFrom(observable);
+      this.updateCurrentUser(user);
+      return user;
+    } catch (error) {
+      const emptyUser: User = {
+        id: -1,
+        username: '',
+        password: '',
+        address: '',
+        image: '',
+      };
+      this.updateCurrentUser(emptyUser);
+      return emptyUser;
+    }
   }
 
   async loginUser(user: User): Promise<User> {
-    const observable = this.http.post<User>(
-      'http://localhost:8080/logInUser',
-      user
-    );
+    const observable = this.http.post<User>('http://localhost:8080/logInUser', {
+      username: user.username,
+      password: user.password,
+    });
     const foundUser = await firstValueFrom(observable);
     this.updateCurrentUser(user);
     return foundUser;
   }
 
   async registerUser(user: User): Promise<User> {
-    const observable = this.http.post<User>('placeholder for register', user);
+    const observable = this.http.post<User>(
+      'http://localhost:8080/registerUser',
+      user
+    );
     const foundUser = await firstValueFrom(observable);
-    this.updateCurrentUser(user);
+    await this.logoutUser();
+    console.log(foundUser);
+    await this.loginUser(foundUser);
     return foundUser;
   }
 
@@ -48,15 +65,19 @@ export class UserService {
     return foundUser;
   }
 
-  async logoutUser() {
-    const observable = this.http.get<string>('http://localhost:8080/logout');
-    const emptyUser: User = {
-      id: -1,
-      username: '',
-      password: '',
-      address: '',
-      image: '',
-    };
-    this.updateCurrentUser(emptyUser);
+  async logoutUser(): Promise<void> {
+    try {
+      const observable = this.http
+        .get('http://localhost:8080/logout')
+        .subscribe();
+      const emptyUser: User = {
+        id: -1,
+        username: '',
+        password: '',
+        address: '',
+        image: '',
+      };
+      this.updateCurrentUser(emptyUser);
+    } catch (error) {}
   }
 }

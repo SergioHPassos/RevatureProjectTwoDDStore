@@ -14,18 +14,24 @@ export class CartproductComponent implements OnInit {
     private userService: UserService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cartService.cartSubject.subscribe((cart) => (this.cart = cart));
+  }
 
   @Input() product: any = null;
 
   quantity: number = 1;
+  cart: Product[] = [];
 
-  updateQuantity = (quantity: number) => {
+  updateQuantity = async (quantity: number) => {
     // before update
-    if (this.quantity + quantity) {
+    if (this.product.cartAmount + quantity <= 0) {
+      await this.removeProduct(this.product);
+    } else {
+      await this.updateCartProductQuantity(
+        this.product.cartAmount === 0 ? quantity + 1 : quantity
+      );
     }
-
-    this.quantity += quantity;
   };
 
   // update quantity enum
@@ -36,6 +42,14 @@ export class CartproductComponent implements OnInit {
 
   removeProduct = async (product: Product) => {
     await this.cartService.deleteCartProduct(product);
-    await this.cartService.getUserCart(await this.userService.getCurrentUser());
+    await this.cartService.getUserCart();
+  };
+
+  updateCartProductQuantity = async (quantity: number) => {
+    const updatedProduct: Product = {
+      ...this.product,
+      cartAmount: this.product.cartAmount + quantity,
+    };
+    await this.cartService.updateCartProduct(updatedProduct);
   };
 }
