@@ -10,7 +10,7 @@ public class UserDaoPostgres implements UserDao {
     @Override
     public User registerUser(User user) {
         User searchUser = getUserByUsername(user.getUsername());
-        if (searchUser != null) {
+        if (searchUser.getUsername() != null) {
             return null;
         }
         try (Connection connection = DBConnection.getConnection()) {
@@ -22,7 +22,7 @@ public class UserDaoPostgres implements UserDao {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
-            ps.setDate(3, java.sql.Date.valueOf(user.getBirthday()));
+            ps.setDate(3, new Date(1923, 01, 24));
             ps.setString(4, user.getAddress());
             ps.setString(5, user.getImage());
 
