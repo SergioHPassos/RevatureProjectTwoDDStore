@@ -16,7 +16,7 @@ public class CartDAOPostgres implements CartDAO {
         }
         try (Connection connection = DBConnection.getConnection()) {
             Main.cart = new ArrayList<>();
-            String sql = "select * from carts where username = ?";
+            String sql = "select * from carts where username = ? order by itemname asc";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, Main.currentUser.getUsername());
             preparedStatement.execute();
