@@ -85,9 +85,7 @@ public class CartController {
             ctx.status(400);
             ctx.result("Product was not removed.");
         } else {
-           for (int i = 0; i < Main.cart.size(); i++){
-               jsonString += Main.cart.get(i).toString() + "\n\r";
-           }
+           jsonString = gson.toJson(Main.cart);
            ctx.status(200);
            ctx.result(jsonString);
         }
