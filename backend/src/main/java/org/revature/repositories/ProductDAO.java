@@ -13,4 +13,6 @@ public interface ProductDAO {
     ArrayList<Products> getProductsbyTypeAndSubtype(String type, String subtype);
 
     ArrayList<Products> getProductsbyID(int id);
+
+    String updateProductPicture(int id, byte[] array);
 }

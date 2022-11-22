@@ -2,6 +2,7 @@ package org.revature.controllers;
 
 import com.google.gson.Gson;
 import io.javalin.http.Handler;
+import org.postgresql.shaded.com.ongres.scram.common.bouncycastle.base64.Base64;
 import org.revature.driver.Main;
 import org.revature.entities.Products;
 import org.revature.repositories.ProductDAO;
@@ -15,17 +16,13 @@ public class ProductController {
         Gson gson = new Gson();
         ProductDAOPostgres productDAO = new ProductDAOPostgres();
         ArrayList<Products> products = productDAO.getProducts();
-        String jsonString = "";
          if(products.size() == 0) {
             ctx.status(404);
             ctx.result("No products available!");
         } else {
-            for (int i = 0; i < products.size(); i++){
-                jsonString += products.get(i).toString() + "\n\r";
-            }
-             String tmpJSON = gson.toJson(products); // return formatted json string
+            String jsonString = gson.toJson(products);
             ctx.status(200);
-            ctx.result(tmpJSON);
+            ctx.result(jsonString);
         }
     };
     public Handler getProductsbyType = (ctx) -> {
@@ -33,17 +30,13 @@ public class ProductController {
         Gson gson = new Gson();
         Products product = (Products) gson.fromJson(json, Products.class);
         ArrayList<Products> verifiedproduct = Main.productService.getProductbyType(product);
-        String jsonString = "";
         if(verifiedproduct.size() == 0) {
             ctx.status(404);
             ctx.result("No products available!");
         } else {
-            for (int i = 0; i < verifiedproduct.size(); i++){
-                jsonString += verifiedproduct.get(i).toString() + "\n\r";
-            }
-            String tmpJSON = gson.toJson(verifiedproduct); // return formatted json string
+            String jsonString = gson.toJson(verifiedproduct);
             ctx.status(200);
-            ctx.result(tmpJSON);
+            ctx.result(jsonString);
         }
     };
     public Handler getProductsbyTypeAndSubtype = (ctx) -> {
@@ -51,17 +44,13 @@ public class ProductController {
         Gson gson = new Gson();
         Products product = (Products) gson.fromJson(json, Products.class);
         ArrayList<Products> verifiedproduct = Main.productService.getProductbyTypeAndSubtype(product);
-        String jsonString = "";
         if(verifiedproduct.size() == 0) {
             ctx.status(404);
             ctx.result("No products available!");
         } else {
-            for (int i = 0; i < verifiedproduct.size(); i++){
-                jsonString += verifiedproduct.get(i).toString() + "\n\r";
-            }
-            String tmpJSON = gson.toJson(verifiedproduct); // return formatted json string
+            String jsonString = gson.toJson(verifiedproduct);
             ctx.status(200);
-            ctx.result(tmpJSON);
+            ctx.result(jsonString);
         }
     };
 
@@ -70,14 +59,11 @@ public class ProductController {
         Gson gson = new Gson();
         Products product = (Products) gson.fromJson(json, Products.class);
         ArrayList<Products> verifiedproduct = Main.productService.getProductbyId(product.getId());
-        String jsonString = "";
         if(verifiedproduct.size() == 0) {
             ctx.status(404);
             ctx.result("No products available!");
         } else {
-            for (int i = 0; i < verifiedproduct.size(); i++){
-                jsonString += verifiedproduct.get(i).toString() + "\n\r";
-            }
+            String jsonString = gson.toJson(verifiedproduct);
             ctx.status(200);
             ctx.result(jsonString);
         }

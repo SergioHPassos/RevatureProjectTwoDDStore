@@ -1,21 +1,26 @@
 package org.revature.driver;
 
 import io.javalin.Javalin;
+import org.revature.controllers.CartController;
 import org.revature.controllers.UserController;
+import org.revature.entities.Products;
 import org.revature.entities.User;
+import org.revature.repositories.CartDAOPostgres;
 import org.revature.repositories.UserDaoPostgres;
-import org.revature.service.UserService;
-import org.revature.service.UserServiceImpl;
+import org.revature.service.*;
 import org.revature.controllers.ProductController;
 import org.revature.repositories.ProductDAOPostgres;
-import org.revature.service.ProductService;
-import org.revature.service.ProductServicelmpl;
+
+import java.util.ArrayList;
 
 public class Main {
     // instance variables
     public static User currentUser;
+
+    public static ArrayList<Products> cart = new ArrayList<>();
     public static UserService userService = new UserServiceImpl(new UserDaoPostgres());
-    public static ProductService productService = new ProductServicelmpl(new ProductDAOPostgres());
+    public static ProductService productService = new ProductServiceImpl(new ProductDAOPostgres());
+    public static CartService cartService = new CartServiceImpl(new CartDAOPostgres());
     
     // entry point
     public static void main(String[] args) {
@@ -31,12 +36,23 @@ public class Main {
         app.post("/logInUser", userController.logInUser);
         app.get("/getCurrentUser", userController.getCurrentUser);
         app.put("/updateUser", userController.updateUser);
+        app.get("/logout", userController.logout);
 
         ProductController productController = new ProductController();
         app.get("/getProducts", productController.getProducts);
         app.post("/getProductsbyType", productController.getProductsbyType);
         app.post("/getProductsbyTypeAndSubtype", productController.getProductsbyTypeAndSubtype);
         app.post("/getProductsbyId", productController.getProductsbyid);
+
+        CartController cartController = new CartController();
+        app.post("/addToCart", cartController.addToCart);
+        app.get("/getUserCart", cartController.getUserCart);
+        app.post("/updateCart", cartController.updateUserCart);
+        app.post("/deleteCartProduct", cartController.deleteCartProduct);
+        app.post("/checkout", cartController.checkout);
+
+        // Used for adding images to the database.
+        app.post("/productPicture/{id}", productController.updateProductPicture);
 
         // start server
         app.start();

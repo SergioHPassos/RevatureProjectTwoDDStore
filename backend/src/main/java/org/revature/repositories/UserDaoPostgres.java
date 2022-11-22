@@ -99,45 +99,9 @@ public class UserDaoPostgres implements UserDao {
         return null;
     }
 
-
-
-//    @Override
-//    public Stock getAllProducts() {
-//        return null;
-//    }
-//
-//    @Override
-//    public Stock getProductByTypeAndSubType(Stock type, Stock subType) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Stock getProductById(int ItemId) {
-//        return null;
-//    }
-//
     @Override
     public User getUserById(int UserId) {
         return null;
     }
-//
-//    @Override
-//    public Stock getCartByUserId(int UserId) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Cart addItemToCart(Cart cart) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Cart updateItemQuantityInCart(Cart cart) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Cart deleteItemFrontCart(Cart cart) {
-//        return null;
-//    }
+
 }
