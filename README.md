@@ -28,7 +28,7 @@ Fantasy themed storefront with game inspired displays
 - Dynamic color assignment for item rarities
 
 
-## Screenshots
+<!-- ## Screenshots -->
 <!-- ![Example screenshot](./img/screenshot.png) -->
 <!-- If you have screenshots you'd like to share, include them here. -->
 
