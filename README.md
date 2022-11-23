@@ -11,22 +11,32 @@ Fantasy themed storefront with game inspired displays
 
 
 ## General Information
-- After our team agreed upon a design goal for our project, namely, a storefront, the next question was, what would our store sell?
-- While multiple ideas were discussed, the idea of a traditionally low tech yet iconic store, the fantasy shop, combined with modern front-end technology, was an appealing one.
-- Fantasy was a shared passion between many team members, which allowed for us to easily throw ourselves into the work and have a clear goal.
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+- Our team selected the storefront project to develop.
+- We setup our Trello board and assigned our Scrum Master.
+- We conducted daily standups on our past and future progress.
+- Each Sprint we made great strides towards accomplishing our Minial Viable Product (MVP) goals.
+- Additionally, we conducted our Retrospectives on how each Sprint was going.
+- We made pull requests on each feature branch throughout the development, keeping everything organized and safe.
+- Our database we setup using Heroku, we setup a PostgreSQL databse, allowing our development team persistant data throught development cycle.
 
 
 ## Technologies Used
-- Angular
-- Javalin
-- Tailwind
+- Typescript v4.7.2
+- Java v8
+- Angular v14.2.10
+- Javalin v4.1.1
+- Tailwind v3.2.4
 
 
 ## Features
+- CRUD operations created with all endpoints
 - Card based system reminiscent of classic fantasy games
 - Non-standard currency display based on gold pieces
+- 3D rotational effect on product items
+- register/login
+- persistent cart
 - Dynamic color assignment for item rarities
+- checkout capabilities
 
 
 ## Screenshots
@@ -40,17 +50,10 @@ Fantasy themed storefront with game inspired displays
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
-<!-- ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+## Setup
+For the frontend, you need to have node installed. Once node is installed, you can clone the repository and cd into frontend folder. Secondly, enter "npm i" in the terminal to install the dependecies/devdependecies. Lastly, once the node modules have been installed, enter "ng serve -o" in the terminal to start the Angular server and automatically open the default browser to the default address.
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
-
-
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-write-your-code-here -->
+For the backend, you need to install Java 8. Once Java 8 is installed, you can clone the repository and cd into the backend folder. Secondly, open the backend folder in your development environment of choice, mine is Intellij Free Edition. Open the "pom.xml" file and reload those Maven dependencies. Lastly, run your program, the main entry point is the "/driver/Main.java".
 
 
 ## Project Status
@@ -64,21 +67,3 @@ Room for improvement:
 - Notifications based on user action
 - Theme selection
 - Individual product pages
-
-
-<!-- ## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
-
-
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me! -->
-
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
