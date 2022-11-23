@@ -46,19 +46,18 @@ export class CartService {
       product
     );
     const gotProduct = await firstValueFrom(observable);
-    await this.getUserCart();
+    this.getUserCart();
     return gotProduct;
   }
 
-  async deleteCartProduct(product: Product): Promise<Product[]> {
+  async deleteCartProduct(product: Product): Promise<void> {
     try {
       const observable = this.http.post<Product[]>(
         'http://localhost:8080/deleteCartProduct',
         product
       );
-      const gotProduct = await firstValueFrom(observable);
+      const res = await firstValueFrom(observable);
       this.getUserCart();
-      return gotProduct;
     } catch (error) {
       return Promise.reject(error);
     }
@@ -71,7 +70,6 @@ export class CartService {
         {}
       );
       const res = await firstValueFrom(observable);
-      console.log(res);
     } catch (error) {
       return Promise.reject(error);
     }
@@ -81,7 +79,6 @@ export class CartService {
     const cart: Product[] = await this.getUserCart();
     let total: number = 0;
     for (let product of cart) {
-      console.log(product);
       total += product.price * (product.cartAmount || 1);
     }
     this.updateTotalSubject(total);
