@@ -11,10 +11,13 @@ Fantasy themed storefront with game inspired displays
 
 
 ## General Information
-- After our team agreed upon a design goal for our project, namely, a storefront, the next question was, what would our store sell?
-- While multiple ideas were discussed, the idea of a traditionally low tech yet iconic store, the fantasy shop, combined with modern front-end technology, was an appealing one.
-- Fantasy was a shared passion between many team members, which allowed for us to easily throw ourselves into the work and have a clear goal.
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+- Our team selected the storefront project to develop.
+- We setup our Trello board and assigned our Scrum Master.
+- We conducted daily standups on our past and future progress.
+- Each Sprint we made great strides towards accomplishing our Minial Viable Product (MVP) goals.
+- Additionally, we conducted our Retrospectives on how each Sprint was going.
+- We made pull requests on each feature branch throughout the development, keeping everything organized and safe.
+- Our database we setup using Heroku, we setup a PostgreSQL databse, allowing our development team persistant data throught development cycle.
 
 
 ## Technologies Used
