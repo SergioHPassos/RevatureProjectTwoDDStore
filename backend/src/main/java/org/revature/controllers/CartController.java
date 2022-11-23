@@ -36,7 +36,7 @@ public class CartController {
         String jsonString = "";
         if (Main.currentUser == null){
             ctx.status(400);
-            ctx.result("Please Login First!");
+            ctx.result(gson.toJson("Please Login First!"));
         }else if(Main.cart.size() < 1) {
             ctx.status(404);
             ctx.result("Cart is empty!");
