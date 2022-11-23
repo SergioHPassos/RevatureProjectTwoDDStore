@@ -40,8 +40,11 @@
   </div>
 
   <!-- easily digestable information -->
-  <div class="w-full flex flex-col justify-center items-center">
-    <div ngClass="max-w-[25%]" *ngIf="cart.length === 0">
+  <div
+    *ngIf="cart.length === 0"
+    class="w-full flex flex-col justify-center items-center"
+  >
+    <div ngClass="max-w-[25%]">
       <div>
         <img
           src="https://cdn.discordapp.com/attachments/1039200091124289616/1044742458698891294/c45efd_7b3815abee1548e1ab36b958471aa0ae_mv2.png"
