@@ -47,6 +47,7 @@ Fantasy themed storefront with game inspired displays
 ![Register page](./img/registerpage.png)
 ![API Flow](./img/apiflow.png)
 ![DB Tables](./img/db.png)
+![ERD](./img/erd.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
