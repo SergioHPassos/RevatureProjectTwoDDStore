@@ -32,6 +32,7 @@ export class CartproductComponent implements OnInit {
         this.product.cartAmount === 0 ? quantity + 1 : quantity
       );
     }
+    this.cartService.updateTotal();
   };
 
   // update quantity enum

@@ -17,7 +17,7 @@ export class CartService {
     this.cartSubject.next(cart);
   }
 
-  updateTotal(gold: number) {
+  updateTotalSubject(gold: number) {
     this.total.next(gold);
   }
 
@@ -26,7 +26,6 @@ export class CartService {
       'http://localhost:8080/getUserCart'
     );
     const cart = await firstValueFrom(observable);
-    console.log(cart);
     this.updateCart(cart);
     return cart;
   }
@@ -47,7 +46,7 @@ export class CartService {
       product
     );
     const gotProduct = await firstValueFrom(observable);
-    this.getUserCart();
+    await this.getUserCart();
     return gotProduct;
   }
 
@@ -78,12 +77,13 @@ export class CartService {
     }
   }
 
-  async _updateTotal() {
-    const cart = await this.getUserCart();
+  async updateTotal() {
+    const cart: Product[] = await this.getUserCart();
     let total: number = 0;
     for (let product of cart) {
-      total += product.price * (product.cartCount || 1);
+      console.log(product);
+      total += product.price * (product.cartAmount || 1);
     }
-    this.updateTotal(total);
+    this.updateTotalSubject(total);
   }
 }

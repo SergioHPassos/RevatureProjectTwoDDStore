@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
   async updateTotal() {
     await this.cartService.getUserCart();
     for (let product of this.cart) {
-      this.total += product.price * (product.cartCount || 1);
+      this.total += product.price * (product.cartAmount || 1);
     }
   }
 

@@ -13,14 +13,14 @@
   <!-- quantity -->
   <div class="flex flex-row gap-2 justify-evenly items-center">
     <button
-      class="hover:scale-110 px-3 py-1 rounded-lg text-white text-xl hover:shadow-lg hover:shadow-yellow-400 hover:text-yellow-400 duration-500 active:shadow-none active:bg-yellow-400 active:text-white active:scale-75 inline-flex items-center bg-yellow-700 hover:bg-red-700"
+      class="px-3 py-1 rounded-lg text-white text-xl bg-yellow-700 hover:bg-red-700"
       (click)="updateQuantity(QUANTITY.INCREMENT)"
     >
       +
     </button>
     <p>{{ product.cartAmount <= 0 ? "1" : product.cartAmount }}</p>
     <button
-      class="hover:scale-110 px-3 py-1 rounded-lg text-white text-xl hover:shadow-lg hover:shadow-yellow-400 hover:text-yellow-400 duration-500 active:shadow-none active:bg-yellow-400 active:text-white active:scale-75 inline-flex items-center bg-yellow-700 hover:bg-red-700"
+      class="px-3 py-1 rounded-lg text-white text-xl bg-yellow-700 hover:bg-red-700"
       (click)="updateQuantity(QUANTITY.DECREMENT)"
     >
       -
