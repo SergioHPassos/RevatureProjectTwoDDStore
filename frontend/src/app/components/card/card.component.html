@@ -4,7 +4,10 @@
   <div class="box">
     <div class="body">
       <div
-        [ngClass]="'imgContainer border-2 ' + rarityFunction(product!.rarity)"
+        [ngClass]="
+          'imgContainer border-8 rounded-lg rounded-lg' +
+          rarityFunction(product!.rarity)
+        "
       >
         <img *ngIf="product" [src]="product.image" />
         <!-- Put background image within p to give bacground image to text -->

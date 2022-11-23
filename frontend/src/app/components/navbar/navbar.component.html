@@ -21,32 +21,32 @@
     <!-- links -->
     <div class="flex flex-row gap-3 font-semibold text-xl text-black">
       <a
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
         routerLink="/"
         >Shop</a
       >
       <a
         *ngIf="currentUser.username.length > 0"
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
         routerLink="/user"
         (click)="getCurrentUser()"
         >Profile</a
       >
       <a
         *ngIf="currentUser.username.length > 0"
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
         routerLink="/cart"
         >Cart</a
       >
       <a
         *ngIf="currentUser.username.length > 0"
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
         (click)="logoutCurrentUser()"
         >Logout</a
       >
       <a
         *ngIf="currentUser.username.length === 0"
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md shadow-red-500"
+        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
         routerLink="/login"
         >Login</a
       >
