@@ -21,32 +21,32 @@
     <!-- links -->
     <div class="flex flex-row gap-3 font-semibold text-xl text-black">
       <a
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
+        class="hover:scale-110 px-3 py-1 rounded-lg text-white text-xl hover:shadow-lg hover:shadow-yellow-400 hover:text-yellow-400 duration-500 active:shadow-none active:bg-yellow-400 active:text-white active:scale-75 inline-flex items-center bg-yellow-700 hover:bg-red-700"
         routerLink="/"
         >Shop</a
       >
       <a
         *ngIf="currentUser.username.length > 0"
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
+        class="hover:scale-110 px-3 py-1 rounded-lg text-white text-xl hover:shadow-lg hover:shadow-yellow-400 hover:text-yellow-400 duration-500 active:shadow-none active:bg-yellow-400 active:text-white active:scale-75 inline-flex items-center bg-yellow-700 hover:bg-red-700"
         routerLink="/user"
         (click)="getCurrentUser()"
         >Profile</a
       >
       <a
         *ngIf="currentUser.username.length > 0"
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
+        class="hover:scale-110 px-3 py-1 rounded-lg text-white text-xl hover:shadow-lg hover:shadow-yellow-400 hover:text-yellow-400 duration-500 active:shadow-none active:bg-yellow-400 active:text-white active:scale-75 inline-flex items-center bg-yellow-700 hover:bg-red-700"
         routerLink="/cart"
         >Cart</a
       >
       <a
         *ngIf="currentUser.username.length > 0"
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
+        class="hover:scale-110 px-3 py-1 rounded-lg text-white text-xl hover:shadow-lg hover:shadow-yellow-400 hover:text-yellow-400 duration-500 active:shadow-none active:bg-yellow-400 active:text-white active:scale-75 inline-flex items-center bg-yellow-700 hover:bg-red-700"
         (click)="logoutCurrentUser()"
         >Logout</a
       >
       <a
         *ngIf="currentUser.username.length === 0"
-        class="hover:bg-slate-700 hover:text-white transition-all duration-700 px-2 py-2 rounded drop-shadow-md"
+        class="hover:scale-110 px-3 py-1 rounded-lg text-white text-xl hover:shadow-lg hover:shadow-yellow-400 hover:text-yellow-400 duration-500 active:shadow-none active:bg-yellow-400 active:text-white active:scale-75 inline-flex items-center bg-yellow-700 hover:bg-red-700"
         routerLink="/login"
         >Login</a
       >
