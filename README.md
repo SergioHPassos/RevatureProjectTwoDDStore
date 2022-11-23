@@ -5,6 +5,7 @@ Fantasy themed storefront with game inspired displays
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
+* [Screenshots](#screenshots)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 
@@ -28,8 +29,14 @@ Fantasy themed storefront with game inspired displays
 - Dynamic color assignment for item rarities
 
 
-<!-- ## Screenshots -->
-<!-- ![Example screenshot](./img/screenshot.png) -->
+## Screenshots
+![Home page](./img/homepage.png)
+![Profile page](./img/profilepage.png)
+![Cart page](./img/cartpage.png)
+![Login page](./img/loginpage.png)
+![Register page](./img/registerpage.png)
+![API Flow](./img/apiflow.png)
+![DB Tables](./img/db.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
