@@ -17,7 +17,7 @@ export class CartService {
     this.cartSubject.next(cart);
   }
 
-  updateTotal(gold: number) {
+  updateTotalSubject(gold: number) {
     this.total.next(gold);
   }
 
@@ -26,7 +26,6 @@ export class CartService {
       'http://localhost:8080/getUserCart'
     );
     const cart = await firstValueFrom(observable);
-    console.log(cart);
     this.updateCart(cart);
     return cart;
   }
@@ -51,15 +50,14 @@ export class CartService {
     return gotProduct;
   }
 
-  async deleteCartProduct(product: Product): Promise<Product[]> {
+  async deleteCartProduct(product: Product): Promise<void> {
     try {
       const observable = this.http.post<Product[]>(
         'http://localhost:8080/deleteCartProduct',
         product
       );
-      const gotProduct = await firstValueFrom(observable);
+      const res = await firstValueFrom(observable);
       this.getUserCart();
-      return gotProduct;
     } catch (error) {
       return Promise.reject(error);
     }
@@ -72,18 +70,17 @@ export class CartService {
         {}
       );
       const res = await firstValueFrom(observable);
-      console.log(res);
     } catch (error) {
       return Promise.reject(error);
     }
   }
 
-  async _updateTotal() {
-    const cart = await this.getUserCart();
+  async updateTotal() {
+    const cart: Product[] = await this.getUserCart();
     let total: number = 0;
     for (let product of cart) {
-      total += product.price * (product.cartCount || 1);
+      total += product.price * (product.cartAmount || 1);
     }
-    this.updateTotal(total);
+    this.updateTotalSubject(total);
   }
 }

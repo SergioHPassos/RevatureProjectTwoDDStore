@@ -7,6 +7,6 @@ export interface Product {
   image: string;
   stock: number;
   rarity: string;
-  cartCount: number;
+  cartAmount: number;
   description: string;
 }

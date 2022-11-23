@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
           image: '',
           stock: 0,
           rarity: '',
-          cartCount: 0,
+          cartAmount: 0,
           description: '',
         };
         const gotProduct: Product = await this.productService.getProductByID(

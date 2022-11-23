@@ -13,14 +13,14 @@
   <!-- quantity -->
   <div class="flex flex-row gap-2 justify-evenly items-center">
     <button
-      class="bg-slate-700 text-white px-2 py-2 rounded"
+      class="px-3 py-1 rounded-lg text-white text-xl bg-yellow-700 hover:bg-red-700"
       (click)="updateQuantity(QUANTITY.INCREMENT)"
     >
       +
     </button>
     <p>{{ product.cartAmount <= 0 ? "1" : product.cartAmount }}</p>
     <button
-      class="bg-slate-700 text-white px-2 py-2 rounded"
+      class="px-3 py-1 rounded-lg text-white text-xl bg-yellow-700 hover:bg-red-700"
       (click)="updateQuantity(QUANTITY.DECREMENT)"
     >
       -
